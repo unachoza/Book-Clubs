@@ -6,28 +6,33 @@ This schedule will be used to keep track of your progress throughout the week an
 
 You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
-|  Day | Deliverable | Status
+|  Day | Day of Week | Deliverable | Status
 |---|---| ---|
-|Day 1| Project Description /Wireframes / Priority Matrix | Incomplete
-|Day 2| API Search and Render Results | Incomplete
-|Day 3| Book Club Form | Incomplete
-|Day 4| Pseudocode / actual code | Incomplete
-|Day 5| Initial Clickable Model  | Incomplete
-|Day 6| N/A| Incomplete
-|Day 7| N/A | Incomplete
-|Day 8| N/A | Incomplete
-|Day 9| MVP | Incomplete
-|Day 10| Present | Incomplete
+|Day 1| Monday  | Project Developement /Wireframes / Priority Matrix | Complete
+|Day 2| Tuesday  | API Search and Render Results | Incomplete
+|Day 3| Wednesday | Database |  Incomplete
+|Day 5| Friday  |  Forms  | Incomplete
+|Day 6| Saturday  | Forms / Single Pages  | Incomplete
+|Day 7| Sunday  | Nave Bar | Incomplete
+|Day 8| Monday  | MVP /Create Login and save profiles to Database | Incomplete
+|Day 9| Tuesday  | Pull in Google Maps | Incomplete
+|Day 10| Wednesday  | Comment on meetings / Calendar of Meetings | Incomplete
+|Day 11| Thursday  | Adding More Search Functionality  | Incomplete
+|Day 12| Friday  | CSS | Incomplete
+|Day 13| Saturday  | CSS & Experimentation | Incomplete
+|Day 14| Sunday  | Testing / Research Chat| Incomplete
+|Day 15| Monday  | Present | Incomplete
 
 
 
 ## Project Description
 
-I'm creating an app that will allow users to create books clubs for the books they are reading.
+I'm creating an app that will allow users to create books clubs for the books they are reading!
 
 https://res.cloudinary.com/dh41vh9dx/image/upload/v1542662672/Image_uploaded_from_iOS_1.jpg
 
 ## Wireframes
+https://res.cloudinary.com/dh41vh9dx/image/upload/v1542728214/Screen_Shot_2018-11-20_at_10.09.19_AM.png
 https://res.cloudinary.com/dh41vh9dx/image/upload/v1542662674/Image_uploaded_from_iOS.jpg
 
 ## Priority Matrix
@@ -60,6 +65,7 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 ## React Architectural Design
 
 https://res.cloudinary.com/dh41vh9dx/image/upload/v1542662673/Image_uploaded_from_iOS_2.jpg
+https://res.cloudinary.com/dh41vh9dx/image/upload/v1542728232/Screen_Shot_2018-11-20_at_10.36.19_AM.png
 
 ## ERD 
 
@@ -80,14 +86,14 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | Book Single | Renders Book, stateless  | 
 | Book Club Form | Create Book Club Form, stateful |
 | Book Club Singe | Renders Book Club  | 
-| Book Club Edit Form| Edit Book Club Form, statefu | 
+| Book Club Edit Form| Edit Book Club Form, stateful | 
 
 ## Time Frames
 
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Wire Framing and App Design | H | 6hrs| 6hrs | 6hrs |
+| Wire Framing and App Design | H | 8hrs| 8hrs | 8hrs |
 | Creating Database | H | 6hrs| X | X|
 | Search call Parsing API data | H | 4hrs| X | X|
 | Rendering Search Results | H | 3hrs| X | X|
@@ -100,7 +106,7 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | All the CSS | M | 8hrs | X | X|
 | CRUD Functionality | H | 5hrs| X | X|
 | Experimenting | L | 2hrs | X | X|
-| Total | N/A | 45 | X | X |
+| Total | N/A | 57 | X | X |
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | Create Login | L | 3hrs | X | X|
@@ -111,7 +117,7 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | Comment on Books | L | 4hrs | X | X|
 | Add Book Club Questions| L | 3hrs | X | X|
 | CSS Animations | L | 6hrs| X | X|
- Total | N/A | 25 | X | X |
+ Total | N/A | 28 | X | X |
 
 
 
@@ -121,7 +127,6 @@ Helper functions should be generic enought that they can be reused in other appl
 
 | Function | Description | 
 | --- | :---: |  
-| Capitalize | This will capitalize the first letter in a string of text | 
 | Search
 | Favorites
 | Toggle 
