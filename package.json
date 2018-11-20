@@ -4,7 +4,12 @@
   "description": "create book clubs for the books your reading!",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db": "psql -f db/schema/schema.sql && psql -f db/seed/seed.sql",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "debugger": "DEBUG=: nodemon server.js"
   },
   "author": "Arianna Choza",
   "license": "ISC",
