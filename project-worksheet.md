@@ -19,8 +19,8 @@ You are **responsible** for scheduling time with your squad to seek approval for
 |Day 10| Wednesday  | Comment on meetings / Calendar of Meetings | Incomplete
 |Day 11| Thursday  | Adding More Search Functionality  | Incomplete
 |Day 12| Friday  | CSS | Incomplete
-|Day 13| Saturday  | CSS & Experimentation | Incomplete
-|Day 14| Sunday  | Testing / Research Chat| Incomplete
+|Day 13| Saturday  | CSS / Responseive Design Experimentation | Incomplete
+|Day 14| Sunday  | Testing / Research Chat / Orientation | Incomplete
 |Day 15| Monday  | Present | Incomplete
 
 
