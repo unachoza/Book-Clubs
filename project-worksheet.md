@@ -6,22 +6,22 @@ This schedule will be used to keep track of your progress throughout the week an
 
 You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
-|  Day | Day of Week | Deliverable | Status
-|---|---| ---|
-|Day 1| Monday  | Project Developement /Wireframes / Priority Matrix | Complete
-|Day 2| Tuesday  | API Search and Render Results | Incomplete
-|Day 3| Wednesday | Database |  Incomplete
-|Day 5| Friday  |  Forms  | Incomplete
-|Day 6| Saturday  | Forms / Single Pages  | Incomplete
-|Day 7| Sunday  | Nave Bar | Incomplete
-|Day 8| Monday  | MVP /Create Login and save profiles to Database | Incomplete
-|Day 9| Tuesday  | Pull in Google Maps | Incomplete
-|Day 10| Wednesday  | Comment on meetings / Calendar of Meetings | Incomplete
-|Day 11| Thursday  | Adding More Search Functionality  | Incomplete
-|Day 12| Friday  | CSS | Incomplete
-|Day 13| Saturday  | CSS / Responseive Design Experimentation | Incomplete
-|Day 14| Sunday  | Testing / Research Chat / Orientation | Incomplete
-|Day 15| Monday  | Present | Incomplete
+|  Day | Day of Week | Deliverable | Status |
+|---|---| ---|---|
+|Day 1| Monday  | Project Developement /Wireframes / Priority Matrix | Complete|
+|Day 2| Tuesday  | API Search and Render Results | Incomplete|
+|Day 3| Wednesday | Database |  Incomplete|
+|Day 5| Friday  |  Forms  | Incomplete|
+|Day 6| Saturday  | Forms / Single Pages  | Incomplete|
+|Day 7| Sunday  | Nave Bar | Incomplete|
+|Day 8| Monday  | MVP /Create Login and save profiles to Database | Incomplete|
+|Day 9| Tuesday  | Pull in Google Maps | Incomplete|
+|Day 10| Wednesday  | Comment on meetings / Calendar of Meetings | Incomplete|
+|Day 11| Thursday  | Adding More Search Functionality  | Incomplete|
+|Day 12| Friday  | CSS | Incomplete|
+|Day 13| Saturday  | CSS / Responseive Design Experimentation | Incomplete|
+|Day 14| Sunday  | Testing / Research Chat / Orientation | Incomplete|
+|Day 15| Monday  | Present | Incomplete|
 
 
 
