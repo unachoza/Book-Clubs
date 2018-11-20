@@ -137,7 +137,11 @@ Helper functions should be generic enought that they can be reused in other appl
     "body-scroll-lock": "^2.5.10",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "React Gmaps"
+    "Materialize"
     "react-scripts": "^2
+    "react-responsive"
+    "react-datetime-picker"
 
 ## Code Snippet
 
