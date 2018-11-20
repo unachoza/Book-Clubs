@@ -1,27 +1,33 @@
 CREATE TABLE user_profile (
 id BIGSERIAL PRIMARY KEY NOT NULL,
-user_name VARCHAR NOT NULL,
-user_password VARCHAR NOT NULL, 
-email VARCHAR NOT NULL, 
-user_location VARCHAR NOT NULL, 
-book VARCHAR REFERENCES book(id) NOT NULL,
-book_club INT REFERENCES ref(book_id) NOT NULL
+user_name VARCHAR(15) NOT NULL,
+user_password VARCHAR(8) NOT NULL, 
+email VARCHAR(30) NOT NULL, 
+user_location VARCHAR(255) NOT NULL, 
+book VARCHAR(255)  REFERENCES book(id) NOT NULL,
+book_club VARCHAR(255) REFERENCES ref(book_id) NOT NULL
 )
 CREATE TABLE book_club (
-id BIGSERIAL PRIMARY KEY NOT NULL,
-bc_name VARCHAR NOT NULL,
-bc_description VARCHAR NOT NULL, 
-bc_location VARCHAR NOT NULL, 
-bc_book 
-details
-readers
-readers_emails
+id BIGSERIAL PRIMARY KEY REFERENCES ref(club_id) NOT NULL,
+bc_name VARCHAR(255) NOT NULL,
+bc_description VARCHAR(255) NOT NULL, 
+bc_location VARCHAR(255) NOT NULL, 
+bc_book VARCHAR(255) REFERENCES book(id) NOT NULL,
+details VARCHAR(255) NOT NULL,
+readers VARCHAR(255) NOT NULL,
+readers_emails VARCHAR(255) NOT NULL,
 )
 
 CREATE TABLE book (
-
+id BIGSERIAL PRIMARY KEY NOT NULL,
+title VARCHAR(255) NOT NULL,
+author VARCHAR(255) NOT NULL,
+genre VARCHAR(255) NOT NULL,
+page_num INT NOT NULL,
+summary VARCHAR(255) NOT NULL
 )
 
 CREATE TABLE ref (
-
+book_club_id INT NOT NULL,
+book_id INT NOT NULL,
 )
