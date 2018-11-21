@@ -1,9 +1,12 @@
 const db = require('../db/config')
 
-const book_dev ={}
+const books ={}
 
-book_dev.findAll = () => {
-    return db.query(`SELECT * FROM book_dev`);
+books.findAll = () => {
+    return db.query(`SELECT * FROM books `);
   };
+
+
   
-module.exports = book_dev
+  
+module.exports = books
