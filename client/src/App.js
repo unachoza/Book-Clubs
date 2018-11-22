@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Search from './components/Search'
+import Search from './components/Search'
 
 class App extends Component {
   render() {
@@ -8,7 +8,7 @@ class App extends Component {
       <div>
       <h1>Hello there</h1>
       
-      {/* <Search/> */}
+      <Search/>
       </div>
     );
   }
