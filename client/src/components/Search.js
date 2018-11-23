@@ -49,7 +49,7 @@ class Search extends Component {
         //https://www.googleapis.com/books/v1/volumes?q=call me by your name&key=AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk
         axios.get(`${API}q=${this.state.query}&${KEY}`)
         .then((data) => {
-            console.log(data.data.items[0].volumeInfo.title)
+            console.log(data.data.items[3].volumeInfo.title)
             this.setState({
                 titleResults: data.data.items[0].volumeInfo.title,
                 authorResults: data.data.items[0].volumeInfo.authors,
@@ -78,11 +78,6 @@ class Search extends Component {
                     onChange={this.handleInput}>
                 </input>
                 {/* <Suggestions results={this.state.results}/> */}
-                {/* <input
-                    name='Author'
-                    type='text'
-                    placeholder='Search Author'>
-                </input> */}
             </form>
             <p>{this.state.query}</p>
             <h1>{this.state.titleResults}</h1>
