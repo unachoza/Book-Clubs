@@ -11,7 +11,8 @@ class Search extends Component {
         super(props)
         this.state ={
             query : '',
-            results: []
+            titleResults: [],
+
         }  
     this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -50,7 +51,12 @@ class Search extends Component {
         .then((data) => {
             console.log(data.data.items[0].volumeInfo.title)
             this.setState({
-                results: [data.data.items[0].volumeInfo.title, data.data.items[1].volumeInfo.title],
+                titleResults: data.data.items[0].volumeInfo.title,
+                authorResults: data.data.items[0].volumeInfo.authors,
+                genreRestuls: data.data.items[0].volumeInfo.categories,
+                descriptionRestuls: data.data.items[0].volumeInfo.description,
+                pageRestuls: data.data.items[0].volumeInfo.pageCount,
+                imgRestuls: data.data.items[0].volumeInfo.imageLinks.thumbnail,
                 show: true,
             
             })
@@ -79,7 +85,13 @@ class Search extends Component {
                 </input> */}
             </form>
             <p>{this.state.query}</p>
-            <h1>{this.state.results}</h1>
+            <h1>{this.state.titleResults}</h1>
+            <h1>{this.state.authorResults}</h1>
+            <h1>{this.state.genreRestuls}</h1>
+            <h1>{this.state.descriptionRestuls}</h1>
+            <h1>{this.state.pageRestuls}</h1>
+            <img src={this.state.imgRestuls} />
+
             </div>
         )
     }
