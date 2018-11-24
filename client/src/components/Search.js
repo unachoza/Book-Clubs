@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Suggestions from './Suggestions'
-import{BrowserRouter , Link , Route } from 'react-router-dom'
-// import Route from 'react-router-dom/' 
 
 const API = "https://www.googleapis.com/books/v1/volumes?"
 const KEY = 'AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk'
@@ -16,7 +14,8 @@ class Search extends Component {
             titleResults: [],
 
         }  
-    this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
    
     handleInput = async(e) => {
@@ -32,6 +31,28 @@ class Search extends Component {
         console.log(this.state.query)
         this.getInfo()
         console.log('I was clicked')
+    }
+
+    handleClick(e){
+        console.log('hitting button')
+        e.preventDefault()
+        /*the database table*/
+        
+        axios.post('http://localhost:3001/books/',
+        {
+            title: this.state.titleResults,
+            author: this.state.authorResults,
+            img: this.state.imgRestuls,
+            genre: this.state.genreRestuls,
+            page_num: this.state.pageRestuls,
+            summary: this.state.descriptionRestuls
+        })
+        .then((data) => {
+            console.log('success', data)
+        })
+        /* what happens after the user clicks button is what ".then()" means. 
+        needs route of what page user would go to after "handleClick" is handled
+        .then()*/
     }
 
     // handleInputChange (){
@@ -55,8 +76,8 @@ class Search extends Component {
         //for(let i = 0; i <= 10; i++){
         axios.get(`${API}q=${this.state.query}&${KEY}`)
         .then(data => {
-            // let data = res.data.items[i].volumeInfo
-            // data.map(data => {
+            // let data = data.data.items[i].volumeInfo
+            // const suggestions = data.map(data => {
             //     this.setState({
             //         titleResults: data.title,
             //         authorResults: data.authors,
@@ -87,12 +108,6 @@ class Search extends Component {
         
         return(
             <div>
-            <BrowserRouter>
-                <Route path='/search' exact strict render={ () => {
-                    return(<h1>new page</h1>)
-                    }
-                }/>
-            </BrowserRouter>
             <form onSubmit={this.handleSubmit}>
                 <input
                     name='Title'    
@@ -111,7 +126,8 @@ class Search extends Component {
             <h1>{this.state.descriptionRestuls}</h1>
             <h1>{this.state.pageRestuls}</h1>
             <img src={this.state.imgRestuls} />
-
+            <button onClick={this.handleClick}>Add to my books</button>
+            
             </div>
         )
     }

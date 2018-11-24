@@ -28,7 +28,12 @@ controller.index = (req, res) => {
     });
   };
   
+  // app.use(bodyParser.urlencoded({
+  //   extended: true
+  // }));
+
   controller.create = (req, res) => {
+    console.log("checking create" , req.body)
     books.create({
       title: req.body.title,
       author: req.body.author,
