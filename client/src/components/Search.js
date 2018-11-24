@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Suggestions from './Suggestions'
+import{BrowserRouter , Link , Route } from 'react-router-dom'
+// import Route from 'react-router-dom/' 
 
 const API = "https://www.googleapis.com/books/v1/volumes?"
 const KEY = 'AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk'
@@ -20,8 +22,11 @@ class Search extends Component {
     handleInput = async(e) => {
         await this.setState({
             query: e.target.value
-        })
-    }
+            
+        }) 
+    } 
+
+
     handleSubmit(e){
         e.preventDefault()
         console.log(this.state.query)
@@ -45,11 +50,24 @@ class Search extends Component {
     // }
 
     getInfo() {
-        console.log('hello')
+        
         //https://www.googleapis.com/books/v1/volumes?q=call me by your name&key=AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk
+        //for(let i = 0; i <= 10; i++){
         axios.get(`${API}q=${this.state.query}&${KEY}`)
-        .then((data) => {
-            console.log(data.data.items[3].volumeInfo.title)
+        .then(data => {
+            // let data = res.data.items[i].volumeInfo
+            // data.map(data => {
+            //     this.setState({
+            //         titleResults: data.title,
+            //         authorResults: data.authors,
+            //         genreRestuls: data.categories,
+            //         descriptionRestuls: data.description,
+            //         pageRestuls: data.pageCount,
+            //         imgRestuls: data.imageLinks.thumbnail,
+            //     })
+            // })
+
+            //  console.log(data.data.items[i].volumeInfo.title)
             this.setState({
                 titleResults: data.data.items[0].volumeInfo.title,
                 authorResults: data.data.items[0].volumeInfo.authors,
@@ -60,22 +78,29 @@ class Search extends Component {
                 show: true,
             
             })
-            console.log(this.state.results)
+            console.log(this.state.data)
         })
-        .then(() => console.log(this.state.results))
+        // .then(() => console.log(this.state.results))
     }
 
     render(){
         
         return(
             <div>
+            <BrowserRouter>
+                <Route path='/search' exact strict render={ () => {
+                    return(<h1>new page</h1>)
+                    }
+                }/>
+            </BrowserRouter>
             <form onSubmit={this.handleSubmit}>
                 <input
-                    name='Title'
+                    name='Title'    
                     type='text'
                     placeholder='Search Book Title'
                     ref={input => this.search = input}
                     onChange={this.handleInput}>
+                  
                 </input>
                 {/* <Suggestions results={this.state.results}/> */}
             </form>
