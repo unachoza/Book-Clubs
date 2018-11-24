@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
 import './App.css';
 import Search from './components/Search'
-import CreateAccount from './components/CreateAccount';
-import CreateBookClub from './components/CreateBookClub'
+import BookClubSingle from './components/SingleBookClub'
+import CreateAccount from './components/FormCreateAccount';
+import CreateBookClub from './components/FormCreateBookClub'
 import {Switch, Route, Link } from 'react-router-dom'
+import EditBookClubForm from './components/FormEditBookClub';
 
 
 class App extends Component {
   render() {
     return (
       <div>
-        <h1>header</h1>
-        <Link to="/createBookClub"><button>Create Book Club</button></Link>
+        <h1>Header</h1>
         <Switch>
           <Route path="/createBookClub" component={CreateBookClub}/>
           <Route path="/" component={Search} />
+          <Route path="/bookClubSingle" component ={BookClubSingle}/>
+          <Route path="editBookClubForm" component={EditBookClubForm}/>
         </Switch>
-
-        <h1>footer</h1>
+        <Link to="/createBookClub"><button>Create Book Club</button></Link>
+        <h1>Footer</h1>
       </div>
       
     );

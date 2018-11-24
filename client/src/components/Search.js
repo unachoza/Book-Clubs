@@ -76,19 +76,9 @@ class Search extends Component {
         //for(let i = 0; i <= 10; i++){
         axios.get(`${API}q=${this.state.query}&${KEY}`)
         .then(data => {
-            // let data = data.data.items[i].volumeInfo
-            // const suggestions = data.map(data => {
-            //     this.setState({
-            //         titleResults: data.title,
-            //         authorResults: data.authors,
-            //         genreRestuls: data.categories,
-            //         descriptionRestuls: data.description,
-            //         pageRestuls: data.pageCount,
-            //         imgRestuls: data.imageLinks.thumbnail,
-            //     })
-            // })
-
-            //  console.log(data.data.items[i].volumeInfo.title)
+            /* Need to save map as a variable to send it over to suggestions 
+            const suggestions = data.map()
+             console.log(data.data.items[i].volumeInfo.title) */
             this.setState({
                 titleResults: data.data.items[0].volumeInfo.title,
                 authorResults: data.data.items[0].volumeInfo.authors,
@@ -101,7 +91,7 @@ class Search extends Component {
             })
             console.log(this.state.data)
         })
-        // .then(() => console.log(this.state.results))
+        // .then(() => console.log(this.state.data))
     }
 
     render(){
