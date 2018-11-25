@@ -130,7 +130,7 @@ class Search extends Component {
            
             return (
                 <div key={id} className= "bookSuggestion">
-                {/* <img src={x.imageLinks.thumbnail} /> */}
+                <img src={x.imageLinks.thumbnail} />
                 <h6>{x.title} </h6>
 
                 <button onClick={(e) => this.handleClick(e, id)}>Add to my books</button>
