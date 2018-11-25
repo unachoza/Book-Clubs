@@ -6,6 +6,7 @@ import CreateAccount from './components/FormCreateAccount';
 import CreateBookClub from './components/FormCreateBookClub'
 import {Switch, Route, Link } from 'react-router-dom'
 import EditBookClubForm from './components/FormEditBookClub';
+import SingleBook from './components/SingleBook'
 
 
 class App extends Component {
@@ -17,7 +18,8 @@ class App extends Component {
           <Route path="/createBookClub" component={CreateBookClub}/>
           <Route path="/" component={Search} />
           <Route path="/bookClubSingle" component ={BookClubSingle}/>
-          <Route path="editBookClubForm" component={EditBookClubForm}/>
+          <Route path="/editBookClubForm" component={EditBookClubForm}/>
+          <Route path="/SingleBook/:id" component={SingleBook}/>
         </Switch>
         <Link to="/createBookClub"><button>Create Book Club</button></Link>
         <h1>Footer</h1>

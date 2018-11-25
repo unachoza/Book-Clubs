@@ -42,10 +42,10 @@ class Search extends Component {
         {
             title: this.state.titleResults,
             author: this.state.authorResults,
-            img: this.state.imgRestuls,
-            genre: this.state.genreRestuls,
-            page_num: this.state.pageRestuls,
-            summary: this.state.descriptionRestuls
+            img: this.state.imgResults,
+            genre: this.state.genreResults,
+            page_num: this.state.pageResults,
+            summary: this.state.descriptionResults
         })
         .then((data) => {
             console.log('success', data)
@@ -82,10 +82,10 @@ class Search extends Component {
             this.setState({
                 titleResults: data.data.items[0].volumeInfo.title,
                 authorResults: data.data.items[0].volumeInfo.authors,
-                genreRestuls: data.data.items[0].volumeInfo.categories,
-                descriptionRestuls: data.data.items[0].volumeInfo.description,
-                pageRestuls: data.data.items[0].volumeInfo.pageCount,
-                imgRestuls: data.data.items[0].volumeInfo.imageLinks.thumbnail,
+                genreResults: data.data.items[0].volumeInfo.categories,
+                descriptionResults: data.data.items[0].volumeInfo.description,
+                pageResults: data.data.items[0].volumeInfo.pageCount,
+                imgResults: data.data.items[0].volumeInfo.imageLinks.thumbnail,
                 show: true,
             
             })
@@ -112,10 +112,10 @@ class Search extends Component {
             <p>{this.state.query}</p>
             <h1>{this.state.titleResults}</h1>
             <h1>{this.state.authorResults}</h1>
-            <h1>{this.state.genreRestuls}</h1>
-            <h1>{this.state.descriptionRestuls}</h1>
-            <h1>{this.state.pageRestuls}</h1>
-            <img src={this.state.imgRestuls} />
+            <h1>{this.state.genreResults}</h1>
+            <h1>{this.state.descriptionResults}</h1>
+            <h1>{this.state.pageResults}</h1>
+            <img src={this.state.imgResults} />
             <button onClick={this.handleClick}>Add to my books</button>
             
             </div>
