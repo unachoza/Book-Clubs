@@ -12,7 +12,8 @@ class Search extends Component {
         super(props)
         this.state ={
             query : '',
-            titleResults: [],
+            allBooksResults: [],
+            
 
         }  
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -35,19 +36,20 @@ class Search extends Component {
         console.log('I was clicked')
     }
 
-    handleClick(e){
+    handleClick(e, id){
         console.log('hitting button')
         e.preventDefault()
         /*the database table*/
         
         axios.post('http://localhost:3001/books/',
         {
-            title: this.state.titleResults,
-            author: this.state.authorResults,
-            img: this.state.imgResults,
-            genre: this.state.genreResults,
-            page_num: this.state.pageResults,
-            summary: this.state.descriptionResults
+            title: this.state.allBooksResults[id].title,
+            author: this.state.allBooksResults[id].authors,
+            img: this.state.allBooksResults[id].imageLinks.thumbnail,
+            genre: this.state.allBooksResults[id].categories,
+            page_num: this.state.allBooksResults[id].pageCount,
+            summary: this.state.allBooksResults[id].description
+            
         })
         .then((data) => {
             console.log('success', data)
@@ -88,33 +90,54 @@ class Search extends Component {
              /*this.setState(prevState => ({
                 myArray: [...prevState.myArray, {"name": "object"}]
                 })) */
-            this.setState({
-            
-                titleResults: data.data.items[0].volumeInfo.title,
-                authorResults: data.data.items[0].volumeInfo.authors,
-                genreResults: data.data.items[0].volumeInfo.categories,
-                descriptionResults: data.data.items[0].volumeInfo.description,
-                pageResults: data.data.items[0].volumeInfo.pageCount,
-                imgResults: data.data.items[0].volumeInfo.imageLinks.thumbnail,
-                show: true,
-            
+
+                let resultArray = []
+                for(let i =0; i <= 9 ; i++){
+                   resultArray.push(data.data.items[i].volumeInfo)
+                }
+                this.setState({
+
+                    allBooksResults: resultArray
+                })
+                //     titleResults: data.data.items[0].volumeInfo.title,
+                // authorResults: data.data.items[0].volumeInfo.authors,
+                // genreResults: data.data.items[0].volumeInfo.categories,
+                // descriptionResults: data.data.items[0].volumeInfo.description,
+                // pageResults: data.data.items[0].volumeInfo.pageCount,
+                // imgResults: data.data.items[0].volumeInfo.imageLinks.thumbnail,
+                // show: true,
+                // }
             })
             console.log(this.state)
-        })
+        
         // .then(() => console.log(this.state.data))
     }
     /*maybe make a show more button to do another API (getInfor()call of 9 results */
-    createAllBooksArray(){
-        for (let i = 0; i <= 9; i++ ) {
-            //use i in state to add to hard coded index [0+i]
-            this.getInfo()
-            this.setState(prevState => ({
-                allBooksArray: [...prevState.allBooksArray, {"res[i]": "state"}],
-            })) 
-        }
-    }
+    // createAllBooksArray(){
+    //     for (let i = 0; i <= 9; i++ ) {
+    //         //use i in state to add to hard coded index [0+i]
+    //         this.getInfo()
+    //         this.setState(prevState => ({
+    //             allBooksArray: [...prevState.allBooksArray, {"res[i]": "state"}],
+    //         })) 
+    //     }
+    // }
 
     render(){
+
+        let options = this.state.allBooksResults.map( (x ,id) => { 
+            console.log(x.imageLinks)
+           
+            return (
+                <div key={id} className= "bookSuggestion">
+                <img src={x.imageLinks}/>
+                <h6 >{x.title} </h6>
+
+                <button onClick={(e) => this.handleClick(e, id)}>Add to my books</button>
+                </div>
+                )
+        })
+
         
         return(
             <div>
@@ -131,14 +154,15 @@ class Search extends Component {
             </form>
             
             <p>{this.state.query}</p>
-            <h1>{this.state.titleResults}</h1>
+            <div>{options}</div>
+            {/* <h1>{this.state.allBooksArray}</h1>
             {/* <h1>{this.state.authorResults}</h1>
             <h1>{this.state.genreResults}</h1>
             <h1>{this.state.descriptionResults}</h1>
-            <h1>{this.state.pageResults}</h1> */}
-            <img src={this.state.imgResults} /><br/>
-            <button onClick={this.handleClick}>Add to my books</button>
-            <SingleBook />
+            <h1>{this.state.pageResults}</h1> 
+            <img src={this.state.imgResults} /><br/> */}
+            
+            {/* <SingleBook /> */}
             
             </div>
         )

@@ -8,8 +8,10 @@ class SingleBook extends Component{
         book: null,
         apiDataLoaded: false
     }
+
+    
     componentDidMount() {
-		console.log('this is props from singleBook: ', this.props)
+		console.log('this is props from singleBook: ', this.state)
 		axios.get(`/books/${this.props.match.params.id}`)
 			.then(res => {
 				this.setState({
