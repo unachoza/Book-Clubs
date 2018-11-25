@@ -76,10 +76,18 @@ class Search extends Component {
         //for(let i = 0; i <= 10; i++){
         axios.get(`${API}q=${this.state.query}&${KEY}`)
         .then(data => {
-            /* Need to save map as a variable to send it over to suggestions 
+            /* need to push api call into an array, then map over the array to render results
+
+            
+            Need to save map as a variable to send it over to suggestions 
             const suggestions = data.map()
              console.log(data.data.items[i].volumeInfo.title) */
+
+             /*this.setState(prevState => ({
+                myArray: [...prevState.myArray, {"name": "object"}]
+                })) */
             this.setState({
+            
                 titleResults: data.data.items[0].volumeInfo.title,
                 authorResults: data.data.items[0].volumeInfo.authors,
                 genreResults: data.data.items[0].volumeInfo.categories,
@@ -89,9 +97,19 @@ class Search extends Component {
                 show: true,
             
             })
-            console.log(this.state.data)
+            console.log(this.state)
         })
         // .then(() => console.log(this.state.data))
+    }
+    /*maybe make a show more button to do another API (getInfor()call of 9 results */
+    createAllBooksArray(){
+        for (let i = 0; i <= 9; i++ ) {
+            //use i in state to add to hard coded index [0+i]
+            this.getInfo()
+            this.setState(prevState => ({
+                allBooksArray: [...prevState.allBooksArray, {"res[i]": "state"}],
+            })) 
+        }
     }
 
     render(){
@@ -111,11 +129,11 @@ class Search extends Component {
             </form>
             <p>{this.state.query}</p>
             <h1>{this.state.titleResults}</h1>
-            <h1>{this.state.authorResults}</h1>
+            {/* <h1>{this.state.authorResults}</h1>
             <h1>{this.state.genreResults}</h1>
             <h1>{this.state.descriptionResults}</h1>
-            <h1>{this.state.pageResults}</h1>
-            <img src={this.state.imgResults} />
+            <h1>{this.state.pageResults}</h1> */}
+            <img src={this.state.imgResults} /><br/>
             <button onClick={this.handleClick}>Add to my books</button>
             
             </div>
