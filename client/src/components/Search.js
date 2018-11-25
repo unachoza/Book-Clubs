@@ -126,12 +126,12 @@ class Search extends Component {
     render(){
 
         let options = this.state.allBooksResults.map( (x ,id) => { 
-            console.log(x.imageLinks)
+            console.log(x.imageLinks.thumbnail)
            
             return (
                 <div key={id} className= "bookSuggestion">
-                <img src={x.imageLinks}/>
-                <h6 >{x.title} </h6>
+                {/* <img src={x.imageLinks.thumbnail} /> */}
+                <h6>{x.title} </h6>
 
                 <button onClick={(e) => this.handleClick(e, id)}>Add to my books</button>
                 </div>
