@@ -19,7 +19,8 @@ class SingleBook extends Component{
 			}).catch(err => console.log(err))
 	}
     deleteBook() {
-		axios.delete(`/books/${this.props.match.params.id}`)
+        console.log('deleting', this.props.params.id)
+		axios.delete(`/books/${this.props.params.id}`)
 			.then(res => {
 				this.setState(prevState => ({
 					fireRedirect:true
@@ -45,8 +46,9 @@ class SingleBook extends Component{
     render(){
         return(
             <div>
+                {this.renderBookOrLoading()}
                 <h1>{this.props.name}</h1>
-                <button onClick={this.deleteBook}>Delete this Book</button>
+                <button onClick={() => this.deleteBook}>Delete this Book</button>
             </div>
         )
     }

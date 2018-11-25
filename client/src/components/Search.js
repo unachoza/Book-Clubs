@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Suggestions from './Suggestions'
+import SingleBook from './SingleBook';
 
 const API = "https://www.googleapis.com/books/v1/volumes?"
 const KEY = 'AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk'
@@ -16,6 +17,7 @@ class Search extends Component {
         }  
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClick = this.handleClick.bind(this)
+
     }
    
     handleInput = async(e) => {
@@ -127,6 +129,7 @@ class Search extends Component {
                 </input>
                 {/* <Suggestions results={this.state.results}/> */}
             </form>
+            
             <p>{this.state.query}</p>
             <h1>{this.state.titleResults}</h1>
             {/* <h1>{this.state.authorResults}</h1>
@@ -135,6 +138,7 @@ class Search extends Component {
             <h1>{this.state.pageResults}</h1> */}
             <img src={this.state.imgResults} /><br/>
             <button onClick={this.handleClick}>Add to my books</button>
+            <SingleBook />
             
             </div>
         )
