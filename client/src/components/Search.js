@@ -112,16 +112,6 @@ class Search extends Component {
         
         // .then(() => console.log(this.state.data))
     }
-    /*maybe make a show more button to do another API (getInfor()call of 9 results */
-    // createAllBooksArray(){
-    //     for (let i = 0; i <= 9; i++ ) {
-    //         //use i in state to add to hard coded index [0+i]
-    //         this.getInfo()
-    //         this.setState(prevState => ({
-    //             allBooksArray: [...prevState.allBooksArray, {"res[i]": "state"}],
-    //         })) 
-    //     }
-    // }
 
     render(){
 
@@ -141,29 +131,19 @@ class Search extends Component {
         
         return(
             <div>
-            <form onSubmit={this.handleSubmit}>
-                <input
-                    name='Title'    
-                    type='text'
-                    placeholder='Search Book Title'
-                    ref={input => this.search = input}
-                    onChange={this.handleInput}>
-                  
-                </input>
-                {/* <Suggestions results={this.state.results}/> */}
-            </form>
-            
-            <p>{this.state.query}</p>
-            <div>{options}</div>
-            {/* <h1>{this.state.allBooksArray}</h1>
-            {/* <h1>{this.state.authorResults}</h1>
-            <h1>{this.state.genreResults}</h1>
-            <h1>{this.state.descriptionResults}</h1>
-            <h1>{this.state.pageResults}</h1> 
-            <img src={this.state.imgResults} /><br/> */}
-            
-            {/* <SingleBook /> */}
-            
+                <form onSubmit={this.handleSubmit}>
+                    <input
+                        name='Title'    
+                        type='text'
+                        placeholder='Search Book Title'
+                        ref={input => this.search = input}
+                        onChange={this.handleInput}>
+                    </input>
+                    {/* <Suggestions results={this.state.results}/> */}
+                </form>
+                <p>{this.state.query}</p>
+                <div>{options}</div>
+                {/* <SingleBook /> */}
             </div>
         )
     }
