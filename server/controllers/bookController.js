@@ -42,7 +42,21 @@ controller.index = (req, res) => {
       res.status(500).json({ err });
     });
   };
+
   
+  
+  controller.showClub = (req, res) => {
+    books.findByIdBookClub (req.params.id)
+    .then(books => {
+      res.json({
+        message: 'ok',
+        data: books,
+      });
+    }).catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+  };
   // app.use(bodyParser.urlencoded({
   //   extended: true
   // }));
