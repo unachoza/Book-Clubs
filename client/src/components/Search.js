@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import Suggestions from './Suggestions'
 import SingleBook from './SingleBook';
+import {Switch, Route, Link } from 'react-router-dom'
+
 
 const API = "https://www.googleapis.com/books/v1/volumes?"
 const KEY = 'AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk'
@@ -120,7 +122,7 @@ class Search extends Component {
            
             return (
                 <div key={id} className= "bookSuggestion">
-                <img src={x.imageLinks.thumbnail} />
+                <Link to={`/SingleBook/${id}`}><img src={x.imageLinks.thumbnail} /></Link>
                 <h6>{x.title} </h6>
 
                 <button onClick={(e) => this.handleClick(e, id)}>Add to my books</button>
@@ -139,11 +141,11 @@ class Search extends Component {
                         ref={input => this.search = input}
                         onChange={this.handleInput}>
                     </input>
-                    {/* <Suggestions results={this.state.results}/> */}
                 </form>
                 <p>{this.state.query}</p>
+                {/* <Suggestions options={options}/> */}
                 <div>{options}</div>
-                {/* <SingleBook /> */}
+                <SingleBook allBooksResults={this.state.allBooksResults.e}/>
             </div>
         )
     }
