@@ -19,6 +19,7 @@ class App extends Component {
           <Route exact path="/" component={Search} />
           <Route path="/SingleBook/:id" component={SingleBook}/>
           <Route path="/createBookClub" component={CreateBookClub}/>
+
           <Route path="/bookClubSingle" component ={BookClubSingle}/>
           <Route path="/editBookClubForm" component={EditBookClubForm}/>
           <Route path="/createAccount" component={SingleProfile}/>

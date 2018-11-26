@@ -18,52 +18,87 @@ class CreateBookClub extends Component {
     constructor(props){
         super(props)
         this.state = {
-            bookClubName : ''
-        //     description: '',
-        //     location: '',
-        //     details: ''
-         }
+            bc_name : '',
+            bc_description: "",
+            bc_location: ''
+         } 
+         this.handleClick =this.handleClick.bind(this)
     }
 
+    // handleSubmit(e){
+    //     e.preventDefault()
+    //     console.log(this.state)
+    //     this.getInfo()
+    //     console.log('I was clicked')
+    // }
 
-    handleInput = async(e) => {
+    handleNameInput = async(e) => {
         console.log(this.state)
         console.log('inputting')
         await this.setState({
-            bookClubName: e.target.value
+            bc_name: e.target.value
             
         }) 
+    }
+    handleDescInput = async(e) => {
+        console.log(this.state)
+        console.log('inputting')
+        await this.setState({
+            bc_description: e.target.value
+            
+        }) 
+    }
+    handleLocationInput = async(e) => {
+        console.log(this.state)
+        console.log('inputting')
+        await this.setState({
+            bc_location: e.target.value
+            
+        }) 
+    }
+    handleClick(e){
+        console.log('hitting create button')
+        e.preventDefault()
+        /*the database table*/
+        
+        axios.post('http://localhost:3001/bookClubs',
+        {
+            bc_name: this.state.bc_name,
+            bc_description: this.state.bc_description,
+            bc_location: this.state.bc_location
+        })
+        .then((data) => {
+            console.log('success', data)
+        })
+        /* what happens after the user clicks button is what ".then()" means. 
+        needs route of what page user would go to after "handleClick" is handled
+        .then()*/
     }
 
 
     render(){
         return(
-            <form>
+            <form >
              <h1>Create Book Club</h1>
             <input
                 name='Name'
                 type='text'
                 placeholder='Book Club Name'
-                onChange={this.handleInput} >
-            </input>
+                onChange={this.handleNameInput} >
+            </input><br/>
             <input
                 name='Name'
                 type='text'
                 placeholder='Description'
-                onChange={this.handleInput}>
-            </input>
+                onChange={this.handleDescInput}>
+            </input><br/>
             <input
                 name='Name'
                 type='text'
                 placeholder='Location'
-                onChange={this.handleInput}>
-            </input>
-            <input
-                name='Name'
-                type='text'
-                placeholder='Details'
-                onChange={this.handleInput}>
-            </input>
+                onChange={this.handleLocationInput}>
+            </input><br/>
+            <button onClick={this.handleClick}>Create</button>
             <button>
                 Invite Readers
             </button>

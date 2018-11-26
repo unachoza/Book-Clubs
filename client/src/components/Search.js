@@ -133,6 +133,7 @@ class Search extends Component {
         
         return(
             <div>
+  
                 <form onSubmit={this.handleSubmit}>
                     <input
                         name='Title'    
@@ -146,6 +147,7 @@ class Search extends Component {
                 {/* <Suggestions options={options}/> */}
                 <div>{options}</div>
                 <SingleBook allBooksResults={this.state.allBooksResults.e}/>
+
             </div>
         )
     }
