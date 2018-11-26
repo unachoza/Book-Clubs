@@ -146,7 +146,7 @@ class Search extends Component {
                 <p>{this.state.query}</p>
                 {/* <Suggestions options={options}/> */}
                 <div>{options}</div>
-                <SingleBook allBooksResults={this.state.allBooksResults.e}/>
+                {/* <SingleBook allBooksResults={this.state.allBooksResults.e}/> */}
 
             </div>
         )

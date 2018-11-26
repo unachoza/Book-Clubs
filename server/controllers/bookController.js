@@ -88,9 +88,8 @@ controller.createBookClub = (req, res) => {
     bc_name: req.body.bc_name,
     bc_description: req.body.bc_description,
     bc_location: req.body.bc_location
-   
   })
-  .then(obj => {
+  .then(books => {
     res.json({
       message:'yay new book club!',
       data: bookClubs,

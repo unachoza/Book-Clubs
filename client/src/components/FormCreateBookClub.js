@@ -61,7 +61,7 @@ class CreateBookClub extends Component {
         e.preventDefault()
         /*the database table*/
         
-        axios.post('http://localhost:3001/bookClubs',
+        axios.post('http://localhost:3001/books/createbookclub',
         {
             bc_name: this.state.bc_name,
             bc_description: this.state.bc_description,
