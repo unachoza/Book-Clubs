@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Suggestions from './Suggestions'
+import SingleBook from './SingleBook';
+import {Switch, Route, Link } from 'react-router-dom'
+
 
 const API = "https://www.googleapis.com/books/v1/volumes?"
 const KEY = 'AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk'
@@ -11,11 +14,13 @@ class Search extends Component {
         super(props)
         this.state ={
             query : '',
-            titleResults: [],
+            allBooksResults: [],
+            
 
         }  
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClick = this.handleClick.bind(this)
+
     }
    
     handleInput = async(e) => {
@@ -33,19 +38,20 @@ class Search extends Component {
         console.log('I was clicked')
     }
 
-    handleClick(e){
+    handleClick(e, id){
         console.log('hitting button')
         e.preventDefault()
         /*the database table*/
         
         axios.post('http://localhost:3001/books/',
         {
-            title: this.state.titleResults,
-            author: this.state.authorResults,
-            img: this.state.imgResults,
-            genre: this.state.genreResults,
-            page_num: this.state.pageResults,
-            summary: this.state.descriptionResults
+            title: this.state.allBooksResults[id].title,
+            author: this.state.allBooksResults[id].authors,
+            img: this.state.allBooksResults[id].imageLinks.thumbnail,
+            genre: this.state.allBooksResults[id].categories,
+            page_num: this.state.allBooksResults[id].pageCount,
+            summary: this.state.allBooksResults[id].description
+            
         })
         .then((data) => {
             console.log('success', data)
@@ -76,48 +82,72 @@ class Search extends Component {
         //for(let i = 0; i <= 10; i++){
         axios.get(`${API}q=${this.state.query}&${KEY}`)
         .then(data => {
-            /* Need to save map as a variable to send it over to suggestions 
+            /* need to push api call into an array, then map over the array to render results
+
+            
+            Need to save map as a variable to send it over to suggestions 
             const suggestions = data.map()
              console.log(data.data.items[i].volumeInfo.title) */
-            this.setState({
-                titleResults: data.data.items[0].volumeInfo.title,
-                authorResults: data.data.items[0].volumeInfo.authors,
-                genreResults: data.data.items[0].volumeInfo.categories,
-                descriptionResults: data.data.items[0].volumeInfo.description,
-                pageResults: data.data.items[0].volumeInfo.pageCount,
-                imgResults: data.data.items[0].volumeInfo.imageLinks.thumbnail,
-                show: true,
-            
+
+             /*this.setState(prevState => ({
+                myArray: [...prevState.myArray, {"name": "object"}]
+                })) */
+
+                let resultArray = []
+                for(let i =0; i <= 9 ; i++){
+                   resultArray.push(data.data.items[i].volumeInfo)
+                }
+                this.setState({
+
+                    allBooksResults: resultArray
+                })
+                //     titleResults: data.data.items[0].volumeInfo.title,
+                // authorResults: data.data.items[0].volumeInfo.authors,
+                // genreResults: data.data.items[0].volumeInfo.categories,
+                // descriptionResults: data.data.items[0].volumeInfo.description,
+                // pageResults: data.data.items[0].volumeInfo.pageCount,
+                // imgResults: data.data.items[0].volumeInfo.imageLinks.thumbnail,
+                // show: true,
+                // }
             })
-            console.log(this.state.data)
-        })
+            console.log(this.state)
+        
         // .then(() => console.log(this.state.data))
     }
 
     render(){
+
+        let options = this.state.allBooksResults.map( (x ,id) => { 
+            console.log(x.imageLinks.thumbnail)
+           
+            return (
+                <div key={id} className= "bookSuggestion">
+                <Link to={`/SingleBook/${id}`}><img src={x.imageLinks.thumbnail} /></Link>
+                <h6>{x.title} </h6>
+
+                <button onClick={(e) => this.handleClick(e, id)}>Add to my books</button>
+                </div>
+                )
+        })
+
         
         return(
             <div>
-            <form onSubmit={this.handleSubmit}>
-                <input
-                    name='Title'    
-                    type='text'
-                    placeholder='Search Book Title'
-                    ref={input => this.search = input}
-                    onChange={this.handleInput}>
-                  
-                </input>
-                {/* <Suggestions results={this.state.results}/> */}
-            </form>
-            <p>{this.state.query}</p>
-            <h6>{this.state.titleResults}</h6>
-            {/* <h1>{this.state.authorResults}</h1>
-            <h1>{this.state.genreResults}</h1>
-            <h1>{this.state.descriptionResults}</h1>
-            <h1>{this.state.pageResults}</h1> */}
-            <img src={this.state.imgResults} /><br/>
-            <button onClick={this.handleClick}>Add to my books</button>
-            
+  
+                <form onSubmit={this.handleSubmit}>
+                    <input
+                        name='Title'    
+                        type='text'
+                        placeholder='Search Book Title'
+                        ref={input => this.search = input}
+                        onChange={this.handleInput}>
+                    </input>
+                </form>
+                <p>{this.state.query}</p>
+                {/* <Suggestions options={options}/> */}
+                <div>{options}</div>
+                <SingleBook allBooksResults={this.state.allBooksResults.e}/>
+
             </div>
         )
     }
