@@ -32,6 +32,7 @@ class CreateAccount extends Component {
                 placeholder='Location'
                 onChange={this.handleInput}>
             </input>
+            
                 <button> {/* onClick={} */ }
                  Create Account
                 </button>   
