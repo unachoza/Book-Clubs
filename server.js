@@ -26,8 +26,8 @@ const booksRoutes = require('./server/routers/bookRouter');
 app.use('/books', booksRoutes);
 
 //not sure about thisone
-const bcRoutes = require('./server/routers/bcRouter');
-app.use('/bookclubs', bcRoutes);
+// const bcRoutes = require('./server/routers/bcRouter');
+// app.use('/bookclubs', bcRoutes);
 
 app.use('*', (req, res) => {
   res.status(400).json({

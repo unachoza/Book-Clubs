@@ -1,17 +1,29 @@
 const db = require('../../db/config')
 
 const books ={}
-const bookClubs ={}
+//const bookClubs ={}
 
 books.findAll = () => {
     return db.query(`SELECT * FROM books `);
   };
 
+  books.findAllclubs = () => {
+    return db.query(`SELECT * FROM book_club `);
+  };
 
   books.findById = (id) => {
     return db.oneOrNone(
       `
       SELECT * FROM books
+      WHERE id = $1
+    `,
+      [id]
+    );
+  };
+  books.findByIdBookClub = (id) => {
+    return db.oneOrNone(
+      `
+      SELECT * FROM book_club
       WHERE id = $1
     `,
       [id]
@@ -30,7 +42,20 @@ books.findAll = () => {
       [books.title, books.author, books.img, books.genre, books.page_num, books.summary]
     );
   };
+    //creating new bookclub and adding to database
+    books.createBookClub = book_club => {
+      return db.one(
+        `
+        INSERT INTO book_club
+        (bc_name, bc_description, bc_location)
+        VALUES ($1, $2, $3)
+        RETURNING *
+      `,
+        [book_club.bc_name, book_club.bc_description, book_club.bc_location]
+      );
+    };
   
+
   books.update = (books, id) => {
     return db.one(
       `
@@ -58,18 +83,6 @@ books.findAll = () => {
     );
   };
 
-  //creating new bookclub and adding to database
-  bookClubs.create = book_club => {
-    return db.one(
-      `
-      INSERT INTO book_club
-      (bc_name, bc_description, bc_location)
-      VALUES ($1, $2, $3)
-      RETURNING *
-    `,
-      [book_club.bc_name, book_club.bc_description, book_club.bc_location]
-    );
-  };
 
 
 
