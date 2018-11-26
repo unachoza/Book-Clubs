@@ -25,12 +25,12 @@ class CreateBookClub extends Component {
          this.handleClick =this.handleClick.bind(this)
     }
 
-    handleSubmit(e){
-        e.preventDefault()
-        console.log(this.state.bookClubName)
-        this.getInfo()
-        console.log('I was clicked')
-    }
+    // handleSubmit(e){
+    //     e.preventDefault()
+    //     console.log(this.state)
+    //     this.getInfo()
+    //     console.log('I was clicked')
+    // }
 
     handleNameInput = async(e) => {
         console.log(this.state)
@@ -61,7 +61,7 @@ class CreateBookClub extends Component {
         e.preventDefault()
         /*the database table*/
         
-        axios.post('http://localhost:3001/bookClubs/',
+        axios.post('http://localhost:3001/bookClubs',
         {
             bc_name: this.state.bc_name,
             bc_description: this.state.bc_description,

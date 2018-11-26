@@ -1,5 +1,5 @@
-const books = require('./models')
-const bookClubs = require('./models')
+const books = require('../models/bookModels')
+// const bookClubs = require('./models')
 const controller = {}
 
 controller.index = (req, res) => {

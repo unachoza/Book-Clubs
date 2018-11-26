@@ -1,4 +1,4 @@
-const db = require('../db/config')
+const db = require('../../db/config')
 
 const books ={}
 const bookClubs ={}
@@ -126,4 +126,4 @@ books.findAll = () => {
 
   
 module.exports = books
-module.exports = bookClubs
+// module.exports = bookClubs
