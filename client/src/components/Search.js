@@ -110,12 +110,12 @@ class Search extends Component {
                 {/* <Suggestions results={this.state.results}/> */}
             </form>
             <p>{this.state.query}</p>
-            <h1>{this.state.titleResults}</h1>
-            <h1>{this.state.authorResults}</h1>
+            <h6>{this.state.titleResults}</h6>
+            {/* <h1>{this.state.authorResults}</h1>
             <h1>{this.state.genreResults}</h1>
             <h1>{this.state.descriptionResults}</h1>
-            <h1>{this.state.pageResults}</h1>
-            <img src={this.state.imgResults} />
+            <h1>{this.state.pageResults}</h1> */}
+            <img src={this.state.imgResults} /><br/>
             <button onClick={this.handleClick}>Add to my books</button>
             
             </div>
