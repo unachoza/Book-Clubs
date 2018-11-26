@@ -63,3 +63,23 @@ INSERT INTO books ( title, author, img, genre, page_num, summary) VALUES
 --     'paul',
 --     'pauulchoza@gmail.com'
 --     );
+
+
+INSERT INTO book_club ( bc_name, bc_description, bc_location, bc_book_id, readers, readers_emails) VALUES 
+(
+    'Memior Book Club', 
+    'We meet once a week at talk about the lives of remarkable memiorist', 
+    'Starbucks', 
+    2,
+    'paul',
+    'pauulchoza@gmail.com'
+    ),
+
+    (
+    'ReadClub', 
+    'talk about the lives of remarkable authors', 
+    'toby estates',
+    24,
+    'paul',
+    'pauulchoza@gmail.com'
+    );
