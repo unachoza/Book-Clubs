@@ -53,7 +53,7 @@ controller.index = (req, res) => {
     });
   };
 
-//creating a book
+//creating a book // I commented this out and was no longer able to connect in post man
 controller.createBookClub = (req, res) => {
   console.log("checking create" , req.body)
   bookClubs.create({

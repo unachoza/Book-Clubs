@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 const booksRoutes = require('./server/routers/bookRouter');
 app.use('/books', booksRoutes);
 
+//not sure about thisone
 const bcRoutes = require('./server/routers/bcRouter');
 app.use('/bookclubs', bcRoutes);
 

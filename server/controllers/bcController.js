@@ -1,4 +1,4 @@
-const bookClubs = require('../models/bookModels')
+const bookClubs = require('../models/bcModels')
 const bcController = {}
 
 bcController.index = (req, res) => {
@@ -32,23 +32,23 @@ bcController.index = (req, res) => {
   //   extended: true
   // }));
 
-  bcController.createBook = (req, res) => {
-    console.log("checking create" , req.body)
-    bookClubs.create({
-      title: req.body.title,
+//   bcController.createBook = (req, res) => {
+//     console.log("checking create" , req.body)
+//     bookClubs.create({
+//       title: req.body.title,
      
-    }).then(bookClubs => {
-      res.json({
-        message: 'ok',
-        data: bookClubs,
-      });
-    }).catch(err => {
-      console.log(err);
-      res.status(500).json({ err });
-    });
-  };
+//     }).then(bookClubs => {
+//       res.json({
+//         message: 'ok',
+//         data: bookClubs,
+//       });
+//     }).catch(err => {
+//       console.log(err);
+//       res.status(500).json({ err });
+//     });
+//   };
 
-//creating a book
+//creating a bookclub
 bcController.createBookClub = (req, res) => {
   console.log("checking create" , req.body)
   bookClubs.create({
