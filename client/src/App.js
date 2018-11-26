@@ -16,7 +16,7 @@ class App extends Component {
         <h1>Header</h1>
         <Switch>
           <Route path="/createBookClub" component={CreateBookClub}/>
-          <Route path="/" component={Search} />
+          <Route exact path="/" component={Search} />
           <Route path="/bookClubSingle" component ={BookClubSingle}/>
           <Route path="/editBookClubForm" component={EditBookClubForm}/>
           <Route path="/SingleBook/:id" component={SingleBook}/>

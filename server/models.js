@@ -1,6 +1,7 @@
 const db = require('../db/config')
 
 const books ={}
+const bookClubs ={}
 
 books.findAll = () => {
     return db.query(`SELECT * FROM books `);
@@ -16,6 +17,8 @@ books.findAll = () => {
       [id]
     );
   };
+
+  //adding book to database
   books.create = books => {
     return db.one(
       `
@@ -54,6 +57,20 @@ books.findAll = () => {
       [id]
     );
   };
+
+  //creating new bookclub and adding to database
+  bookClubs.create = book_club => {
+    return db.one(
+      `
+      INSERT INTO book_club
+      (bc_name, bc_description, bc_location)
+      VALUES ($1, $2, $3)
+      RETURNING *
+    `,
+      [book_club.bc_name, book_club.bc_description, book_club.bc_location]
+    );
+  };
+
 
 
 // const book_club ={}
@@ -109,3 +126,4 @@ books.findAll = () => {
 
   
 module.exports = books
+module.exports = bookClubs
