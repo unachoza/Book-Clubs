@@ -15,8 +15,6 @@ class Search extends Component {
         this.state ={
             query : '',
             allBooksResults: [],
-            
-
         }  
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -51,7 +49,6 @@ class Search extends Component {
             genre: this.state.allBooksResults[id].categories,
             page_num: this.state.allBooksResults[id].pageCount,
             summary: this.state.allBooksResults[id].description
-            
         })
         .then((data) => {
             console.log('success', data)
@@ -60,21 +57,6 @@ class Search extends Component {
         needs route of what page user would go to after "handleClick" is handled
         .then()*/
     }
-
-    // handleInputChange (){
-    // console.log('hello')
-    //     this.setState({
-    //         query: this.search.value
-    //     }, () => {
-    //         if(this.state.query && this.state.query.lenght >1){
-    //             if(this.state.query.length % 2 === 0){
-    //                 this.getInfo()
-    //             }
-    //         } else if (!this.state.query){
-
-    //         }
-    //     })
-    // }
 
     getInfo() {
         
@@ -88,18 +70,13 @@ class Search extends Component {
             Need to save map as a variable to send it over to suggestions 
             const suggestions = data.map()
              console.log(data.data.items[i].volumeInfo.title) */
-
-             /*this.setState(prevState => ({
-                myArray: [...prevState.myArray, {"name": "object"}]
-                })) */
-
                 let resultArray = []
                 for(let i =0; i <= 9 ; i++){
                    resultArray.push(data.data.items[i].volumeInfo)
                 }
                 this.setState({
 
-                    allBooksResults: resultArray
+                    allBooksResults: resultArray,
                 })
                 //     titleResults: data.data.items[0].volumeInfo.title,
                 // authorResults: data.data.items[0].volumeInfo.authors,
@@ -118,7 +95,7 @@ class Search extends Component {
     render(){
 
         let options = this.state.allBooksResults.map( (x ,id) => { 
-            console.log(x.imageLinks.thumbnail)
+            //console.log(x.imageLinks.thumbnail)
            
             return (
                 <div key={id} className= "bookSuggestion">
@@ -129,7 +106,6 @@ class Search extends Component {
                 </div>
                 )
         })
-
         
         return(
             <div>

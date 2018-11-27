@@ -24,6 +24,7 @@ class EditBookClubForm extends Component{
         return(
             <div>
                 {/* might need handleformSubmit here, not sure */}
+                <h1>Make Edits to your book club</h1>
                 <form>
                     <label>
                         Book Club Name
@@ -34,7 +35,7 @@ class EditBookClubForm extends Component{
                             value={this.state.bc_name}
                             onChange={(e) => this.handleInputChange(e)}
                         />
-                    </label>
+                    </label><br/>
                     <label>
                         Book Club Description
                         <input
@@ -43,7 +44,7 @@ class EditBookClubForm extends Component{
                             name="Description"
                             value={this.state.bc_description}
                             onChange={(e) => this.handleInputChange(e)}
-                        />
+                        /><br/>
                     </label>
                     <label>
                         Location
@@ -54,7 +55,7 @@ class EditBookClubForm extends Component{
                             value={this.state.bc_location}
                             onChange={(e) => this.handleInputChange(e)}
                         />
-                    </label>
+                    </label><br/>
                     <Link to="/bookClubSingle"><button>Submit</button></Link>
                 </form>
             </div>

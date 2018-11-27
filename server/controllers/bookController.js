@@ -89,7 +89,7 @@ controller.createBookClub = (req, res) => {
     bc_description: req.body.bc_description,
     bc_location: req.body.bc_location
   })
-  .then(books => {
+  .then(bookClubs => {
     res.json({
       message:'yay new book club!',
       data: bookClubs,
@@ -112,6 +112,23 @@ controller.createBookClub = (req, res) => {
     .then(books => {
       res.json({
         message: 'ok',
+        data: books,
+      });
+    }).catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+  };
+
+  controller.updateBookClub = (req, res) => {
+    books.updateBookClub({
+    bc_name: req.body.bc_name,
+    bc_description: req.body.bc_description,
+    bc_location: req.body.bc_location
+    },req.params.id)
+    .then(books => {
+      res.json({
+        message: 'ok, made change',
         data: books,
       });
     }).catch(err => {

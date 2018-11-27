@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios';
+import {Switch, Route, Link } from 'react-router-dom'
 
 
 
@@ -98,7 +99,7 @@ class CreateBookClub extends Component {
                 placeholder='Location'
                 onChange={this.handleLocationInput}>
             </input><br/>
-            <button onClick={this.handleClick}>Create</button>
+            <Link to="bookClubSingle"><button onClick={this.handleClick}>Create</button> </Link>
             <button>
                 Invite Readers
             </button>

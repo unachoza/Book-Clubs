@@ -6,27 +6,30 @@ import axios from 'axios';
 
 /*Needs to be a functional componenet */
 
-export default function SingleBook(state) {
-    console.log("state is", state)
-    console.log(state.id)
+export default class SingleBook extends Component {
+    componentDidMount() {
+      console.log(this.props.match.params.id)
+    }
 
-    return (
-        
-      <div className='show'>
-      <h1>Just one book</h1>
-      <div className='show-title'>{state.title}</div>
-        {/* <div className='show-header'>
+    render() {
+      return (
           
-          <div className='show-datum'>{getYears(state.data.episode_list)}</div>
+        <div className='show'>
+        <h1>Just one book</h1>
+        
+          {/* <div className='show-header'>
+            
+            <div className='show-datum'>{getYears(state.data.episode_list)}</div>
+          </div>
+          <div className='show-img' style={{backgroundImage: `url(${state.data.img_bg})`}}/>
+          <div className='show-info-container'>
+            <div className='show-datum'>{state.data.episodes} Episodes ({state.data.seasons} Seasons)</div>
+          </div>
+          <div className='show-summary'>{state.data.summary}</div>
+          <button onClick={() => state.handleAddFave(state.data.id)}>Add To Watchlist</button> */}
         </div>
-        <div className='show-img' style={{backgroundImage: `url(${state.data.img_bg})`}}/>
-        <div className='show-info-container'>
-          <div className='show-datum'>{state.data.episodes} Episodes ({state.data.seasons} Seasons)</div>
-        </div>
-        <div className='show-summary'>{state.data.summary}</div>
-        <button onClick={() => state.handleAddFave(state.data.id)}>Add To Watchlist</button> */}
-      </div>
-    );
+      );
+    }
   }
 
 

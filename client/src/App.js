@@ -17,9 +17,10 @@ class App extends Component {
         <h1>Navigation Bar</h1>
         <Switch>
           <Route exact path="/" component={Search} />
-          <Route path="/SingleBook/:id" component={SingleBook}/>
+          <Route path="/SingleBook/:id" render={(props) => (
+            <SingleBook { ...props }/>
+          )}/>
           <Route path="/createBookClub" component={CreateBookClub}/>
-
           <Route path="/bookClubSingle" component ={BookClubSingle}/>
           <Route path="/editBookClubForm" component={EditBookClubForm}/>
           <Route path="/createAccount" component={SingleProfile}/>
