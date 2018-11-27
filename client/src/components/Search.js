@@ -98,11 +98,13 @@ class Search extends Component {
             //console.log(x.imageLinks.thumbnail)
            
             return (
+                <div className="suggestionContainer">
                 <div key={id} className= "bookSuggestion">
-                <Link to={`/SingleBook/${id}`}><img src={x.imageLinks.thumbnail} /></Link>
+                <Link to={`/SingleBook/${x.publishedDate}`}><img src={x.imageLinks.thumbnail} /></Link>
                 <h6>{x.title} </h6>
 
                 <button onClick={(e) => this.handleClick(e, id)}>Add to my books</button>
+                </div>
                 </div>
                 )
         })

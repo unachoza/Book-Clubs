@@ -8,14 +8,17 @@ import axios from 'axios';
 
 export default class SingleBook extends Component {
     componentDidMount() {
+      console.log(this.props)
+      console.log(this.props.match)
       console.log(this.props.match.params.id)
     }
 
     render() {
       return (
           
-        <div className='show'>
+        <div>
         <h1>Just one book</h1>
+       
         
           {/* <div className='show-header'>
             

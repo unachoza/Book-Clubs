@@ -56,6 +56,20 @@ books.findAll = () => {
     };
   
 
+  books.updateBookClub = (books, id) => {
+    return db.one(
+      `
+      UPDATE book_club SET
+        bc_name = $1,
+        bc_description = $2,
+        bc_location = $3 
+      WHERE id = $4
+      RETURNING *
+    `,
+      [books.bc_name, books.bc_description, books.bc_location, id]
+    );
+  };
+
   books.update = (books, id) => {
     return db.one(
       `
@@ -82,7 +96,15 @@ books.findAll = () => {
       [id]
     );
   };
-
+  books.destroyBookClub = id => {
+    return db.none(
+      `
+      DELETE FROM book_club
+      WHERE id = $1
+    `,
+      [id]
+    );
+  };
 
 
 

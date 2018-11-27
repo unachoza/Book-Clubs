@@ -25,7 +25,7 @@ class App extends Component {
           <Route path="/editBookClubForm" component={EditBookClubForm}/>
           <Route path="/createAccount" component={SingleProfile}/>
         </Switch>
-        <Link to="/createBookClub"><button>Create Book Club</button></Link>
+        {/* <Link to="/createBookClub"><button>Create Book Club</button></Link> */}
         <h1>Footer</h1>
       </div>
       

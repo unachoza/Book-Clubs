@@ -150,4 +150,17 @@ controller.createBookClub = (req, res) => {
     });
   };
   
+  controller.destroyBookClub = (req, res) => {
+    books.destroyBookClub(req.params.id)
+    .then(books => {
+      res.json({
+        message: 'was destroyed',
+        data: books,
+      });
+    }).catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+  };
+  
   module.exports = controller;

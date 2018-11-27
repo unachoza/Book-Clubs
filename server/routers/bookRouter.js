@@ -10,8 +10,9 @@ router.get('/bookClubs/:id', controller.showClub);
 router.post('/', controller.createBook);
 router.post('/createBookClub', controller.createBookClub);    
 router.put('/:id', controller.update);
-router.put('/:id', controller.update);
+router.put('/bookClubs/:id', controller.updateBookClub);
 router.delete('/:id', controller.destroy);
+router.delete('/bookClubs/:id', controller.destroyBookClub);
 
 
 module.exports = router;
