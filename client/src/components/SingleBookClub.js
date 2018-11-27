@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
-import {Switch, Route, Link } from 'react-router-dom'
-import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 class BookClubSingle extends Component {
     render(){

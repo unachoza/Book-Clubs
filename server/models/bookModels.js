@@ -77,8 +77,8 @@ books.findAll = () => {
         title = $1,
         author = $2,
         img = $3,
-        genre = $4
-        page_num = $5
+        genre = $4,
+        page_num = $5,
         summary = $6
       WHERE id = $7
       RETURNING *

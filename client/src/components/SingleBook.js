@@ -1,16 +1,18 @@
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
-import {Switch, Route, Link, Redirect } from 'react-router-dom'
-import axios from 'axios';
 
 
 /*Needs to be a functional componenet */
 
 export default class SingleBook extends Component {
-    componentDidMount() {
-      console.log(this.props)
-      console.log(this.props.match)
-      console.log(this.props.match.params.id)
+  state ={
+    book: null, 
+    apiDataLoaded: false
+  }
+  
+  
+  componentDidMount() {
+    // axios.get()
+    //   console.log(this.props.match.params.id)
     }
 
     render() {
@@ -18,6 +20,7 @@ export default class SingleBook extends Component {
           
         <div>
         <h1>Just one book</h1>
+        <h1>{this.props.match.params.id}</h1>
        
         
           {/* <div className='show-header'>

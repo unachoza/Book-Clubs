@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Search from './components/Search'
 import BookClubSingle from './components/SingleBookClub'
-import CreateAccount from './components/FormCreateAccount';
 import CreateBookClub from './components/FormCreateBookClub'
-import {Switch, Route, Link } from 'react-router-dom'
+import {Switch, Route } from 'react-router-dom'
 import EditBookClubForm from './components/FormEditBookClub';
 import SingleBook from './components/SingleBook'
 import SingleProfile from './components/SingleProfile'

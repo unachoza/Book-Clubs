@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import Suggestions from './Suggestions'
-import SingleBook from './SingleBook';
-import {Switch, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const API = "https://www.googleapis.com/books/v1/volumes?"
@@ -72,12 +70,13 @@ class Search extends Component {
              console.log(data.data.items[i].volumeInfo.title) */
                 let resultArray = []
                 for(let i =0; i <= 9 ; i++){
-                   resultArray.push(data.data.items[i].volumeInfo)
+                   resultArray.push(data.data.items[i])
                 }
                 this.setState({
-
+                    // console.log("state from API call", resultArray)
                     allBooksResults: resultArray,
                 })
+                console.log("state from API call", resultArray)
                 //     titleResults: data.data.items[0].volumeInfo.title,
                 // authorResults: data.data.items[0].volumeInfo.authors,
                 // genreResults: data.data.items[0].volumeInfo.categories,
@@ -95,13 +94,13 @@ class Search extends Component {
     render(){
 
         let options = this.state.allBooksResults.map( (x ,id) => { 
-            //console.log(x.imageLinks.thumbnail)
+            console.log(x)
            
             return (
                 <div className="suggestionContainer">
                 <div key={id} className= "bookSuggestion">
-                <Link to={`/SingleBook/${x.publishedDate}`}><img src={x.imageLinks.thumbnail} /></Link>
-                <h6>{x.title} </h6>
+                <Link to={`/SingleBook/${x.id}`}><img src={x.volumeInfo.imageLinks.thumbnail} alt={"thumbnail"} /></Link>
+                <h6>{x.volumeInfo.title} </h6>
 
                 <button onClick={(e) => this.handleClick(e, id)}>Add to my books</button>
                 </div>
