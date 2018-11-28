@@ -7,6 +7,8 @@ import {Switch, Route } from 'react-router-dom'
 import EditBookClubForm from './components/FormEditBookClub';
 import SingleBook from './components/SingleBook'
 import SingleProfile from './components/SingleProfile'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 
 class App extends Component {
@@ -16,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Navigation Bar</h1>
+        <Header />
         <Switch>
           <Route exact path="/" component={Search} />
           <Route exact path="/SingleBook/:id" render={(props) => (
@@ -31,7 +33,7 @@ class App extends Component {
           <Route exact path="/createAccount" component={SingleProfile}/>
         </Switch>
         {/* <Link to="/createBookClub"><button>Create Book Club</button></Link> */}
-        <h1>Footer</h1>
+        <Footer/>
       </div>
       
     );

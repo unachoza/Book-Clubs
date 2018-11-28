@@ -112,7 +112,7 @@ class Search extends Component {
             <div>
   
                 <form onSubmit={this.handleSubmit}>
-                    <input
+                    <input className= "search-bar"
                         name='Title'    
                         type='text'
                         placeholder='Search Book Title'

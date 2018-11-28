@@ -1,5 +1,29 @@
+.app{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(188, 196, 195);
+}
+.header-container {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+
+}
+.header{
+  width: 70vw;
+  height: 10vh;
+  color: gray
+}
+.icon {
+  margin: 2vw;
+
+  width: 15vw;
+  height: 10vh;
+
+}
 body{
-  background-color: lightseagreen;
+  background-color: rgb(188, 196, 195);
   
 }
 
@@ -46,4 +70,21 @@ button {
 
 .title {
   font-size: 30px;
+}
+.footer{
+  position: absolute;
+  bottom:0;
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+
+}
+.search-bar {
+  width: 70vw;
+  height: 8vh;
+  margin-top: 12vh;
+}
+.placeholder{
+  font-size: 25px;
 }
