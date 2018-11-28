@@ -44,7 +44,7 @@ class CreateBookClub extends Component {
     }
     handleDescInput = async(e) => {
         console.log(this.state)
-        console.log('inputting')
+        console.log(e.target)
         await this.setState({
             bc_description: e.target.value
             

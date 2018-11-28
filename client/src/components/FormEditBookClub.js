@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom'
+import { Redirect} from 'react-router-dom'
 import axios from 'axios';
 
 class EditBookClubForm extends Component{
@@ -8,10 +8,9 @@ class EditBookClubForm extends Component{
         apiDataLoaded: false,
         bc_name: "",
         bc_description: "",
-        bc_location: ""
-
+        bc_location: "",
+        fireRedirect:false
       }
-      
 
     componentDidMount() {
         console.log('this is props from bookclub: ')
@@ -30,12 +29,47 @@ class EditBookClubForm extends Component{
       }
 
     //edit the bookclub with post
-    handleClick(e){
-        console.log('hitting create button')
+    handleNameInput = async(e) => {
+        e.preventDefault()
+        console.log(this.state)
+        console.log(e.target.value)
+        const bc_name = e.target.value
+
+        await this.setState(prevState => ( { 
+            bc_name
+            
+        })) 
+    }
+    handleDescInput = async(e) => {
+        e.preventDefault()
+        console.log(this.state)
+        console.log(e.target)
+        const bc_description= e.target.value
+        await this.setState(prevState => ({
+            bc_description
+            
+        })) 
+    }
+
+    handleLocationInput = async(e) => {
+        e.preventDefault()
+        console.log(this.state)
+    console.log(`http://localhost:3001/books/bookClubs/${this.props.match.params.id}`)
+
+        console.log(e.target)
+        const bc_location= e.target.value
+        await this.setState(prevState => ({
+            bc_location
+            
+        })) 
+    }
+    //recieving the form changes
+    handleformSubmit(e){
+        console.log('hitting edit/submit button')
         e.preventDefault()
         /*the database table*/
         
-        axios.post('http://localhost:3001/books/createbookclub',
+        axios.put(`http://localhost:3001/books/bookClubs/${this.props.match.params.id}`,
         {
             bc_name: this.state.bc_name,
             bc_description: this.state.bc_description,
@@ -44,7 +78,6 @@ class EditBookClubForm extends Component{
         .then(res => {
                 console.log(res.data.data.id)
                 this.setState({
-                    newId: res.data.data.id,
                     fireRedirect:true
                 })
             })
@@ -57,50 +90,17 @@ class EditBookClubForm extends Component{
     }
 
 
-    handleNameInput = async(e) => {
-        console.log(this.state)
-        console.log('inputting')
-
-        await this.setState(prevState => ( { 
-            bc_name: e.target.value 
-            
-        })) 
-    }
-    handleDescInput = async(e) => {
-        console.log(this.state)
-        console.log('inputting')
-        await this.setState(prevState => ({
-            bc_description: e.target.value 
-            
-        })) 
-    }
-
-    handleLocationInput = async(e) => {
-        console.log(this.state)
-        console.log('inputting')
-        await this.setState(prevState => ({
-            bc_location: e.target.value 
-            
-        })) 
-    }
-
-
-
-    handleformSubmit(){
-
-    }
 
     handleInputChange(){
 
     }
-
 
     render(){
         return(
             <div>
                 {/* might need handleformSubmit here, not sure */}
                 <h1>Make Edits to your book club</h1>
-                <form>
+                <form onSubmit={(e) => this.handleformSubmit(e)}>
                     <label>
                         Book Club Name
                         <input
@@ -131,7 +131,8 @@ class EditBookClubForm extends Component{
                             onChange={(e) => this.handleLocationInput(e)}
                         />
                     </label><br/>
-                    <Link to="/bookClubSingle"><button>Submit</button></Link>
+                    {this.state.fireRedirect ? <Redirect push to={`/SingleBookClub/${this.props.match.params.id}`}/> : ''}
+                    <button>Submiting Edits</button>
                 </form>
             </div>
         )
