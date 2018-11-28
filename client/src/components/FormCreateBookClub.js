@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 
 
@@ -20,7 +20,9 @@ class CreateBookClub extends Component {
         this.state = {
             bc_name : '',
             bc_description: "",
-            bc_location: ''
+            bc_location: '',
+            newId:'',
+            fireRedirect:false
          } 
          this.handleClick =this.handleClick.bind(this)
     }
@@ -67,9 +69,16 @@ class CreateBookClub extends Component {
             bc_description: this.state.bc_description,
             bc_location: this.state.bc_location
         })
-        .then((data) => {
-            console.log('success', data)
-        })
+        .then(res => {
+                console.log(res.data.data.id)
+                this.setState({
+                    newId: res.data.data.id,
+                    fireRedirect:true
+                })
+            })
+            .then(x => console.log('done'))
+           /* console.log('success', data)
+        })*/ 
         /* what happens after the user clicks button is what ".then()" means. 
         needs route of what page user would go to after "handleClick" is handled
         .then()*/
@@ -98,7 +107,12 @@ class CreateBookClub extends Component {
                 placeholder='Location'
                 onChange={this.handleLocationInput}>
             </input><br/>
-            <Link to="bookClubSingle"><button onClick={this.handleClick}>Create</button> </Link>
+            {this.state.fireRedirect ? <Redirect push to={`/SingleBookClub/${this.state.newId}`}/> : ''}
+            {/* <Redirect to={`/SingleBookClub/${this.state.newId}`}> */}
+            <button onClick={this.handleClick}>Create</button> 
+                
+              
+          
             <button>
                 Invite Readers
             </button>

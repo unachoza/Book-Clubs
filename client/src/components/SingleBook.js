@@ -1,18 +1,31 @@
 import React, {Component} from 'react'
+import axios from 'axios'
+import { Link, Redirect } from 'react-router-dom';
 
+
+const API = "https://www.googleapis.com/books/v1/volumes?"
+const KEY = 'AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk'
 
 /*Needs to be a functional componenet */
 
 export default class SingleBook extends Component {
   state ={
-    book: null, 
-    apiDataLoaded: false
+    apiDataLoaded: false,
+    book: ""
   }
   
   
-  componentDidMount() {
-    // axios.get()
-    //   console.log(this.props.match.params.id)
+    componentDidMount() {
+      console.log('this is props from books: ', this.props)
+      axios.get(`${API}q="${this.props.match.params.id}"&${KEY}`)
+        .then(res => {
+          this.setState({
+            apiDataLoaded:true,
+            book: res.data.items[0].volumeInfo
+            
+          })
+          console.log(this.state)
+        }).catch(err => console.log(err))
     }
 
     render() {
@@ -21,6 +34,7 @@ export default class SingleBook extends Component {
         <div>
         <h1>Just one book</h1>
         <h1>{this.props.match.params.id}</h1>
+        <h1>{this.state.book.title}</h1> 
        
         
           {/* <div className='show-header'>
