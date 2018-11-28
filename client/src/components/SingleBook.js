@@ -11,7 +11,7 @@ const KEY = 'AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk'
 export default class SingleBook extends Component {
   state ={
     apiDataLoaded: false,
-    book: ""
+    book: {}
   }
   
   
@@ -28,14 +28,21 @@ export default class SingleBook extends Component {
         }).catch(err => console.log(err))
     }
 
+
     render() {
+      const imageLink = this.state.apiDataLoaded ? this.state.book.imageLinks.thumbnail : null
+      console.log("hitting it!", imageLink)
       return (
           
         <div>
-        <h1>Just one book</h1>
-        <h1>{this.props.match.params.id}</h1>
-        <h1>{this.state.book.title}</h1> 
-       
+        <h1 className="title">{this.state.book.title}</h1> 
+        <h2>{this.state.book.authors}</h2>
+        <h4>{this.state.book.categories}</h4>
+        <h4>{this.state.book.pageCount}</h4>
+        <p>{this.state.book.description}</p>
+        <img src={imageLink}/>
+        <button>Add to Reading List</button>
+        
         
           {/* <div className='show-header'>
             
