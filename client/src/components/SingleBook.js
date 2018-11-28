@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import { Link, Redirect } from 'react-router-dom';
 
 
 const API = "https://www.googleapis.com/books/v1/volumes?"
@@ -27,6 +26,9 @@ export default class SingleBook extends Component {
           console.log(this.state)
         }).catch(err => console.log(err))
     }
+    addtoReadingList(){
+
+    }
 
 
     render() {
@@ -36,11 +38,11 @@ export default class SingleBook extends Component {
           
         <div>
         <h1 className="title">{this.state.book.title}</h1> 
-        <h2>{this.state.book.authors}</h2>
+        <h2>Written by: {this.state.book.authors}</h2>
         <h4>{this.state.book.categories}</h4>
-        <h4>{this.state.book.pageCount}</h4>
+        <h4>Page Count: {this.state.book.pageCount}</h4>
         <p>{this.state.book.description}</p>
-        <img src={imageLink}/>
+        <img src={imageLink} alt={'thumbnail'} /><br/>
         <button>Add to Reading List</button>
         
         

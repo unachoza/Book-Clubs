@@ -27,7 +27,7 @@ class App extends Component {
           <Route exact path="/SingleBookClub/:id" render={(props) => (
             <SingleBookClub { ...props }/>
           )}/>
-          <Route exact path="/editBookClubForm" component={EditBookClubForm}/>
+          <Route exact path="/editBookClubForm/:id" component={EditBookClubForm}/>
           <Route exact path="/createAccount" component={SingleProfile}/>
         </Switch>
         {/* <Link to="/createBookClub"><button>Create Book Club</button></Link> */}
