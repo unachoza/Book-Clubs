@@ -4,10 +4,13 @@
   background-color: rgb(188, 196, 195);
 }
 .header-container {
+  position: absolute;
   width: 100vw;
   height: 10vh;
   display: flex;
   justify-content: center;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 
 }
 .header{
@@ -78,6 +81,8 @@ button {
   height: 10vh;
   display: flex;
   justify-content: space-between;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 
 }
 .search-bar {
@@ -94,4 +99,62 @@ button {
   align-content: center;
   justify-content: center;
   height: 50vh;
+}
+.suggestions-container{
+  position: absolute;
+  top: 10vh;
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.search-page-container{
+  position: absolute;
+  top: 10vh;
+  width: 100vw;
+  height: 90vh;
+}
+.single-book{
+  position: absolute;
+  top: 10vh;
+  width: 100vw;
+  height: 90vh;
+}
+.user-container{
+  position: absolute;
+  top: 10vh;
+  width: 100vw;
+  height: 90vh;
+}
+.form-create-book-club{
+  position: absolute;
+  top: 10vh;
+  width: 100vw;
+  height: 90vh;
+}
+.form-create-account{
+  position: absolute;
+  top: 10vh;
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 50vh;
+}
+.book-club-page{
+  position: absolute;
+  top: 10vh;
+  width: 100vw;
+  height: 90vh;
+}
+.form-edit-book-club{
+  position: absolute;
+  top: 10vh;
+  width: 100vw;
+  height: 90vh;
 }

@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
+      <Header />
         <Switch>
           <Route exact path="/" component={Search} />
           <Route exact path="/createAccount" component={FormCreateAccount} />

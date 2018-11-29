@@ -1,13 +1,15 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import Header from './Header'
 
 const API = "https://www.googleapis.com/books/v1/volumes?"
 const KEY = 'AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk'
 
 
 class Search extends Component {
+
     constructor(props){
         super(props)
         this.state ={
@@ -18,14 +20,22 @@ class Search extends Component {
         this.handleClick = this.handleClick.bind(this)
 
     }
-   
+    // componentDidMount() {
+    //     this.allowBodyScroll = document.querySelector('.suggestionContainer');
+    //     disableBodyScroll(this.allowBodyScroll);
+    //   }
+
+    //   showTargetElement = () => {
+    //     this.allowBodyScroll = document.querySelector('.suggestionContainer');
+    //     disableBodyScroll(this.allowBodyScroll);
+    //   };
+
     handleInput = async(e) => {
         await this.setState({
             query: e.target.value
             
         }) 
     } 
-
 
     handleSubmit(e){
         e.preventDefault()
@@ -97,34 +107,36 @@ class Search extends Component {
             console.log(x)
            
             return (
-                <div className="suggestionContainer">
-                <div key={id} className= "bookSuggestion">
-                <Link to={`/SingleBook/${x.id}`}><img src={x.volumeInfo.imageLinks.thumbnail} alt={"thumbnail"} /></Link>
-                <h6>{x.volumeInfo.title} </h6>
-
-                <button onClick={(e) => this.handleClick(e, id)}>Add to my books</button>
-                </div>
+                <div >
+                    <div key={id} className= "bookSuggestion">
+                        <Link to={`/SingleBook/${x.id}`}><img src={x.volumeInfo.imageLinks.thumbnail} alt={"thumbnail"} /></Link>
+                        <h6>{x.volumeInfo.title} </h6>
+                        <button onClick={(e) => this.handleClick(e, id)}>Add to my books</button>
+                    </div>
                 </div>
                 )
         })
         
         return(
-            <div>
-  
-                <form onSubmit={this.handleSubmit}>
-                    <input className= "search-bar"
-                        name='Title'    
-                        type='text'
-                        placeholder='Search Book Title'
-                        ref={input => this.search = input}
-                        onChange={this.handleInput}>
-                    </input>
-                </form>
-                <p>{this.state.query}</p>
-                {/* <Suggestions options={options}/> */}
-                <div>{options}</div>
-                {/* <SingleBook allBooksResults={this.state.allBooksResults.e}/> */}
+            <div className="search-page-container">
+                
 
+                        <form onSubmit={this.handleSubmit}>
+                            <input className= "search-bar"
+                                name='Title'    
+                                type='text'
+                                placeholder='Search Book Title'
+                                ref={input => this.search = input}
+                                onChange={this.handleInput}>
+                            </input>
+                        </form>
+                        <div className="suggestionContainer">
+                        <p>{this.state.query}</p>
+                        {/* <Suggestions options={options}/> */}
+                        <div>{options}</div>
+                        {/* <SingleBook allBooksResults={this.state.allBooksResults.e}/> */}
+
+                </div>
             </div>
         )
     }

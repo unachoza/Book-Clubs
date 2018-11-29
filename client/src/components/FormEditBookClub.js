@@ -97,7 +97,7 @@ class EditBookClubForm extends Component{
 
     render(){
         return(
-            <div>
+            <div className="form-edit-book-club">
                 {/* might need handleformSubmit here, not sure */}
                 <h1>Make Edits to your book club</h1>
                 <form onSubmit={(e) => this.handleformSubmit(e)}>

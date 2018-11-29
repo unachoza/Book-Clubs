@@ -87,7 +87,7 @@ class CreateBookClub extends Component {
 
     render(){
         return(
-            <form >
+            <form className="form-create-book-club">
              <h1>Create Book Club</h1>
             <input
                 name='Name'

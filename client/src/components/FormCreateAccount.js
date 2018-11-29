@@ -75,7 +75,7 @@ class CreateAccount extends Component {
 
     render(){
         return(
-            <div className="account-form">
+            <div className="form-create-account">
             
             <form > {/*onSubmit={}> */}
             <h1>Create Account</h1><br/>

@@ -22,7 +22,7 @@ class SingleBookClub extends Component {
     console.log('gonn render', this.props)
 
         return(
-            <div>
+            <div className="book-club-page">
             <h1>{this.state.bookClub.bc_name}</h1>
             <h1>{this.state.bookClub.bc_description}</h1>
             <h1>{this.state.bookClub.bc_location}</h1>
