@@ -26,31 +26,31 @@ INSERT INTO books ( title, author, img, genre, page_num, summary) VALUES
     );
 
 
--- INSERT INTO user_profile ( user_name, user_password, email, user_location, books, book_club) VALUES 
---     (
---     'Arianna',
---     'qqqqqq', 
---     'unachoza@gmail.com',
---     'Brooklyn',
---     1, 
---     1
---     ),
---     (
---     'Paul', 
---     'pppppp', 
---     'pauulchoza@gmail.com', 
---     'Santa Monica', 
---     2, 
---     1
---     ),
---     ( 
---     'Andra', 
---     'aaaaaa', 
---     'andra.lally@gmail.com', 
---     'New York', 
---     3, 
---     1
---     );
+INSERT INTO users( user_name, user_password, email, user_location, books, book_club) VALUES 
+    (
+    'Arianna',
+    'qqqqqq', 
+    'unachoza@gmail.com',
+    'Brooklyn',
+    1, 
+    5
+    ),
+    (
+    'Paul', 
+    'pppppp', 
+    'pauulchoza@gmail.com', 
+    'Santa Monica', 
+    2, 
+    5
+    ),
+    ( 
+    'Andra', 
+    'aaaaaa', 
+    'andra.lally@gmail.com', 
+    'New York', 
+    3, 
+    5
+    );
 
 
 

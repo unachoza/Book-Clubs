@@ -23,9 +23,9 @@ readers VARCHAR(1000) ,
 readers_emails VARCHAR(1000)
 );
 
-CREATE TABLE IF NOT EXISTS user_profile (
+CREATE TABLE IF NOT EXISTS users (
 id SERIAL PRIMARY KEY,
-user_name VARCHAR(15) NOT NULL,
+user_name VARCHAR(100) NOT NULL,
 user_password VARCHAR(8) NOT NULL, 
 email VARCHAR(30) NOT NULL, 
 user_location VARCHAR(1000) NOT NULL, 
