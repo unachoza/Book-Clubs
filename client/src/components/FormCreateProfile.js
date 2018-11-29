@@ -2,41 +2,51 @@ import React, {Component} from 'react'
 import axios from 'axios';
 import {  Redirect } from 'react-router-dom'
 
-class CreateAccount extends Component {
+
+
+/*Pseudocode
+    grab input info 'handle submit'
+    take info and put it in database 
+    take info and make a profile page 
+
+    what is focus?
+
+    need to pull in google api to autofill city 
+    need to filter by city 
+*/ 
+class CreateBookClub extends Component {
     constructor(props){
         super(props)
         this.state = {
-            user_name: '',
-            user_password: '', 
-            email: '', 
-            user_location: " " ,
+            bc_name : '',
+            bc_description: "",
+            bc_location: '',
             newId:'',
             fireRedirect:false
-        } 
-        this.handleClick =this.handleClick.bind(this)
+         } 
+         this.handleClick =this.handleClick.bind(this)
     }
+
+    // handleSubmit(e){
+    //     e.preventDefault()
+    //     console.log(this.state)
+    //     this.getInfo()
+    //     console.log('I was clicked')
+    // }
 
     handleNameInput = async(e) => {
         console.log(this.state)
         console.log('inputting')
         await this.setState({
-            user_name: e.target.value
+            bc_name: e.target.value
             
         }) 
     }
-    handlePasswordInput = async(e) => {
+    handleDescInput = async(e) => {
         console.log(this.state)
         console.log(e.target)
         await this.setState({
-            user_password: e.target.value
-            
-        }) 
-    }
-    handleLEmailInput = async(e) => {
-        console.log(this.state)
-        console.log('inputting')
-        await this.setState({
-            email: e.target.value
+            bc_description: e.target.value
             
         }) 
     }
@@ -44,19 +54,20 @@ class CreateAccount extends Component {
         console.log(this.state)
         console.log('inputting')
         await this.setState({
-            user_location: e.target.value
+            bc_location: e.target.value
             
         }) 
     }
     handleClick(e){
         console.log('hitting create button')
         e.preventDefault()
-        axios.post('http://localhost:3001/books/createUser',
+        /*the database table*/
+        
+        axios.post('http://localhost:3001/books/createbookclub',
         {
-            user_name: this.state.user_name,
-            user_password: this.state. user_password,
-            email: this.state.email,
-            user_location: this.state.user_location
+            bc_name: this.state.bc_name,
+            bc_description: this.state.bc_description,
+            bc_location: this.state.bc_location
         })
         .then(res => {
                 console.log(res.data.data.id)
@@ -73,44 +84,44 @@ class CreateAccount extends Component {
         .then()*/
     }
 
+
     render(){
         return(
-            <div className="account-form">
-            
-            <form > {/*onSubmit={}> */}
-            <h1>Create Account</h1><br/>
+            <form >
+             <h1>Create Book Club</h1>
             <input
                 name='Name'
                 type='text'
-                placeholder='Name'
-                onChange={this.handleNameInput}>
+                placeholder='Book Club Name'
+                onChange={this.handleNameInput} >
             </input><br/>
             <input
-                name='Email'
+                name='Name'
                 type='text'
-                placeholder='Email'
-                onChange={this.handleLEmailInput}>
+                placeholder='Description'
+                onChange={this.handleDescInput}>
             </input><br/>
             <input
-                name='Password'
-                type='text'
-                placeholder='Password'
-                onChange={this.handlePasswordInput}>
-            </input><br/>
-            <input
-                name='Location'
+                name='Name'
                 type='text'
                 placeholder='Location'
                 onChange={this.handleLocationInput}>
             </input><br/>
-            {this.state.fireRedirect ? <Redirect push to={`/user/${this.state.newId}`}/> : ''}
+            {this.state.fireRedirect ? <Redirect push to={`/SingleBookClub/${this.state.newId}`}/> : ''}
             {/* <Redirect to={`/SingleBookClub/${this.state.newId}`}> */}
-            <button onClick={this.handleClick}>Create Account</button> 
-            </form>
+            <button onClick={this.handleClick}>Create</button> 
+                
+              
           
-            </div>
+            <button>
+                Invite Readers
+            </button>
+               
+            </form>
+            
+            
         )
     }
 }
 
-export default CreateAccount
+export default CreateBookClub

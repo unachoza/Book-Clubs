@@ -9,7 +9,8 @@ import SingleBook from './components/SingleBook'
 import SingleProfile from './components/SingleProfile'
 import Header from './components/Header'
 import Footer from './components/Footer'
-
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import FormCreateAccount from './components/FormCreateAccount'
 
 class App extends Component {
 
@@ -21,6 +22,10 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Search} />
+          <Route exact path="/createAccount" component={FormCreateAccount} />
+          <Route exact path="/user/:id" render={(props) => (
+            <SingleProfile { ...props }/>
+          )}/>
           <Route exact path="/SingleBook/:id" render={(props) => (
             <SingleBook { ...props }/>
           )}/>
@@ -30,7 +35,6 @@ class App extends Component {
             <SingleBookClub { ...props }/>
           )}/>
           <Route exact path="/editBookClubForm/:id" component={EditBookClubForm}/>
-          <Route exact path="/createAccount" component={SingleProfile}/>
         </Switch>
         {/* <Link to="/createBookClub"><button>Create Book Club</button></Link> */}
         <Footer/>

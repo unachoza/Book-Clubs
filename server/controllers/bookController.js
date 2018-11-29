@@ -29,6 +29,21 @@ controller.index = (req, res) => {
       res.status(500).json({ err });
     });
   };
+
+  controller.indexUsers = (req, res) => {
+    books.findAllUsers()
+    // res.send(data)
+    .then(books => {
+      res.json({
+        message: 'ok',
+        data: books,
+      });
+    }).catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+  };
+
   
   controller.show = (req, res) => {
     books.findById(req.params.id)
@@ -57,9 +72,19 @@ controller.index = (req, res) => {
       res.status(500).json({ err });
     });
   };
-  // app.use(bodyParser.urlencoded({
-  //   extended: true
-  // }));
+
+  controller.showUsers = (req, res) => {
+    books.findByIdUsers(req.params.id)
+    .then(books => {
+      res.json({
+        message: 'ok',
+        data: books,
+      });
+    }).catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+  };
 
   controller.createBook = (req, res) => {
     console.log("checking create" , req.body)
@@ -92,6 +117,26 @@ controller.createBookClub = (req, res) => {
   .then(bookClubs => {
     res.json({
       message:'yay new book club!',
+      data: bookClubs,
+    });
+  }).catch(err => {
+    res.status(500).json(err);
+  });
+}
+
+
+controller.createUser = (req, res) => {
+  console.log("checking create" , req.body)
+  books.createUser({
+    user_name: req.body.user_name,
+    user_password: req.body. user_password,
+    email: req.body.email,
+    user_location: req.body.user_location,
+
+  })
+  .then(bookClubs => {
+    res.json({
+      message:'yay new user!',
       data: bookClubs,
     });
   }).catch(err => {
@@ -136,6 +181,25 @@ controller.createBookClub = (req, res) => {
       res.status(500).json({ err });
     });
   };
+
+  controller.updateUser= (req, res) => {
+    books.updateUser({
+      user_name: req.body.user_name,
+      user_password: req.body. user_password,
+      email: req.body.email,
+      user_location: req.body.user_location
+    },req.params.id)
+    .then(books => {
+      res.json({
+        message: 'ok, made change',
+        data: books,
+      });
+    }).catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+  };
+
   
   controller.destroy = (req, res) => {
     books.destroy(req.params.id)
@@ -163,4 +227,17 @@ controller.createBookClub = (req, res) => {
     });
   };
   
+  controller.destroyUser = (req, res) => {
+    books.destroyUser(req.params.id)
+    .then(books => {
+      res.json({
+        message: 'was destroyed',
+        data: books,
+      });
+    }).catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
+  };
+
   module.exports = controller;

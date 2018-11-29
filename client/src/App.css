@@ -88,3 +88,10 @@ button {
 .placeholder{
   font-size: 25px;
 }
+.account-form{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 50vh;
+}
