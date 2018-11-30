@@ -37,13 +37,22 @@ export default class SingleBook extends Component {
       return (
           
         <div className="single-book">
-        <h1 className="title">{this.state.book.title}</h1> 
-        <h2>Written by: {this.state.book.authors}</h2>
-        <h4>{this.state.book.categories}</h4>
-        <h4>Page Count: {this.state.book.pageCount}</h4>
-        <p>{this.state.book.description}</p>
-        <img src={imageLink} alt={'thumbnail'} /><br/>
-        <button>Add to Reading List</button>
+          <div className="thumbnail-title">
+            <div className= "thumbnail">
+              <img src={imageLink} alt={'thumbnail'} /><br/>
+            </div>
+            <div className ="title">
+              <h1 className="bookTitle">{this.state.book.title}</h1> 
+              <h2>Written by: {this.state.book.authors}</h2>
+              <h4>{this.state.book.categories}</h4>
+              <h4>Page Count: {this.state.book.pageCount}</h4>
+            </div>
+          </div>
+          <div className="description">
+            <p><strong>Description: </strong>{this.state.book.description}</p>
+           <button>Add to Reading List</button>
+          </div>
+          
         </div>
       );
     }

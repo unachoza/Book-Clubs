@@ -7,7 +7,7 @@
   position: fixed;
   z-index: 50;
   width: 100vw;
-  height: 10vh;
+  height: 11vh;
   display: flex;
   justify-content: center;
   background-color: rgb(165, 192, 188);
@@ -72,7 +72,7 @@ button {
   display: auto;
 }
 
-.title {
+.bookTitle {
   font-size: 30px;
 }
 .footer{
@@ -80,7 +80,7 @@ button {
   z-index: 50;
   bottom:0;
   width: 100vw;
-  height: 10vh;
+  height: 11vh;
   display: flex;
   justify-content: space-between;
   background-color: rgb(165, 192, 188);
@@ -117,13 +117,7 @@ button {
   width: 100vw;
   height: 90vh;
 }
-.single-book{
-  position: absolute;
-  margin: 2vmax;
-  top: 12vh;
-  width: 90vw;
-  height: 87vh;
-}
+
 .user-container{
   position: absolute;
   top: 10vh;
@@ -149,9 +143,10 @@ button {
 }
 .book-club-page{
   position: absolute;
-  top: 10vh;
-  width: 100vw;
-  height: 90vh;
+  top: 12vh;
+  width: 92vw;
+  height: 78vh;
+  margin: 2vmax;
 }
 .form-edit-book-club{
   position: absolute;
@@ -164,4 +159,37 @@ button {
   margin: 2vmax;
   width: 25vw;
   height: 37vh;
+}
+
+.thumbnail-title{
+  display: flex;
+  width: 90vw;
+  height: 35vh;
+  top: 18vh;
+}
+.thumbnail {
+  margin: 3vmax;
+  width: 40vw;
+  height: 35vh;
+  top: 18vh;
+}
+.title {
+  width: 40vw;
+  height: 35vh;
+  top: 18vh;
+}
+.description {
+  width: 90vw;
+  height: 47vh;
+  top: 65vh;
+  margin: 1vmax;
+  margin-bottom: 2vh;
+}
+.single-book{
+  position: absolute;
+  margin: 2vmax;
+  margin-bottom: 20vh;
+  top: 16vh;
+  width: 90vw;
+  height: 87vh;
 }

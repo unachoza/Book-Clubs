@@ -23,11 +23,14 @@ class SingleBookClub extends Component {
 
         return(
             <div className="book-club-page">
-            <h1>{this.state.bookClub.bc_name}</h1>
-            <h1>{this.state.bookClub.bc_description}</h1>
-            <h1>{this.state.bookClub.bc_location}</h1>
-
-            <Link to={`/editBookClubForm/${this.props.match.params.id}`}><button>Edit Book Club</button></Link>
+                <h1>{this.state.bookClub.bc_name}</h1>
+                <h1>Description: {this.state.bookClub.bc_description}</h1>
+                <h1>Location: {this.state.bookClub.bc_location}</h1>
+                <div className= "button-container">
+                    <button>Add Books</button>
+                    <Link to={`/editBookClubForm/${this.props.match.params.id}`}><button>Edit Book Club</button></Link>
+                    <button>Invite Readers</button>
+                </div>
             </div>
         )
     }
