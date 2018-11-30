@@ -15,6 +15,7 @@ class Search extends Component {
         this.state ={
             query : '',
             allBooksResults: [],
+            thumbnails : []
         }  
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -79,8 +80,10 @@ class Search extends Component {
             const suggestions = data.map()
              console.log(data.data.items[i].volumeInfo.title) */
                 let resultArray = []
+                let imageLinks = []
                 for(let i =0; i <= 9 ; i++){
                    resultArray.push(data.data.items[i])
+                   imageLinks.push(data.data.items[i].volumeInfo.imageLinks.thumbnail)
                 }
                 this.setState({
                     // console.log("state from API call", resultArray)
@@ -95,7 +98,8 @@ class Search extends Component {
                 // imgResults: data.data.items[0].volumeInfo.imageLinks.thumbnail,
                 // show: true,
                 // }
-            })
+                
+            })  
             console.log(this.state)
         
         // .then(() => console.log(this.state.data))
@@ -133,7 +137,7 @@ class Search extends Component {
                         <div className="suggestionContainer">
                         <p>{this.state.query}</p>
                         {/* <Suggestions options={options}/> */}
-                        <div>{options}</div>
+                        <div className="container">{options}</div>
                         {/* <SingleBook allBooksResults={this.state.allBooksResults.e}/> */}
 
                 </div>

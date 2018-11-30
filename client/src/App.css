@@ -4,13 +4,14 @@
   background-color: rgb(188, 196, 195);
 }
 .header-container {
-  position: absolute;
+  position: fixed;
+  z-index: 50;
   width: 100vw;
   height: 10vh;
   display: flex;
   justify-content: center;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  background-color: rgb(165, 192, 188);
+  
 
 }
 .header{
@@ -75,14 +76,15 @@ button {
   font-size: 30px;
 }
 .footer{
-  position: absolute;
+  position: fixed;
+  z-index: 50;
   bottom:0;
   width: 100vw;
   height: 10vh;
   display: flex;
   justify-content: space-between;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  background-color: rgb(165, 192, 188);
+
 
 }
 .search-bar {
@@ -100,16 +102,14 @@ button {
   justify-content: center;
   height: 50vh;
 }
-.suggestions-container{
-  position: absolute;
+.container {
+  /* position: absolute; */
   top: 10vh;
   width: 100vw;
-  height: 90vh;
+  height: 80vh;
   display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  flex-flow: wrap;
+  /* align-items: center; */
 }
 .search-page-container{
   position: absolute;
@@ -119,9 +119,10 @@ button {
 }
 .single-book{
   position: absolute;
-  top: 10vh;
-  width: 100vw;
-  height: 90vh;
+  margin: 2vmax;
+  top: 12vh;
+  width: 90vw;
+  height: 87vh;
 }
 .user-container{
   position: absolute;
@@ -157,4 +158,10 @@ button {
   top: 10vh;
   width: 100vw;
   height: 90vh;
+}
+
+.bookSuggestion {
+  margin: 2vmax;
+  width: 25vw;
+  height: 37vh;
 }
