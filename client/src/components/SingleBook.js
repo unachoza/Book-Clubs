@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
 const API = "https://www.googleapis.com/books/v1/volumes?"
@@ -50,7 +51,10 @@ export default class SingleBook extends Component {
           </div>
           <div className="description">
             <p><strong>Description: </strong>{this.state.book.description}</p>
-           <button>Add to Reading List</button>
+            <div className = "button-container">
+              <button>Add to Reading List</button>
+              <Link to={"/createBookClub"}><button>New Book Club</button></Link>
+            </div>
           </div>
           
         </div>

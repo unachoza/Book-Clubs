@@ -52,12 +52,12 @@ class Search extends Component {
         
         axios.post('http://localhost:3001/books/',
         {
-            title: this.state.allBooksResults[id].title,
-            author: this.state.allBooksResults[id].authors,
-            img: this.state.allBooksResults[id].imageLinks.thumbnail,
-            genre: this.state.allBooksResults[id].categories,
-            page_num: this.state.allBooksResults[id].pageCount,
-            summary: this.state.allBooksResults[id].description
+            title: this.state.allBooksResults[id].volumeInfo.title,
+            author: this.state.allBooksResults[id].volumeInfo.authors,
+            img: this.state.allBooksResults[id].volumeInfo.imageLinks.thumbnail,
+            genre: this.state.allBooksResults[id].volumeInfo.categories,
+            page_num: this.state.allBooksResults[id].volumeInfo.pageCount,
+            summary: this.state.allBooksResults[id].volumeInfo.description
         })
         .then((data) => {
             console.log('success', data)
@@ -72,7 +72,7 @@ class Search extends Component {
         //https://www.googleapis.com/books/v1/volumes?q=call me by your name&key=AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk
         //for(let i = 0; i <= 10; i++){
         axios.get(`${API}q=${this.state.query}&${KEY}`)
-        .then(data => {
+        .then(async data => {
             /* need to push api call into an array, then map over the array to render results
 
             
@@ -80,12 +80,12 @@ class Search extends Component {
             const suggestions = data.map()
              console.log(data.data.items[i].volumeInfo.title) */
                 let resultArray = []
-                let imageLinks = []
+                //let imageLinks = []
                 for(let i =0; i <= 9 ; i++){
                    resultArray.push(data.data.items[i])
-                   imageLinks.push(data.data.items[i].volumeInfo.imageLinks.thumbnail)
+                   //imageLinks.push(data.data.items[i].volumeInfo.imageLinks.thumbnail)
                 }
-                this.setState({
+                await this.setState({
                     // console.log("state from API call", resultArray)
                     allBooksResults: resultArray,
                 })
@@ -98,9 +98,10 @@ class Search extends Component {
                 // imgResults: data.data.items[0].volumeInfo.imageLinks.thumbnail,
                 // show: true,
                 // }
-                
+                console.log(this.state, "this", this.state.allBooksResults)
             })  
-            console.log(this.state)
+            
+            
         
         // .then(() => console.log(this.state.data))
     }
