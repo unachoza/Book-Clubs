@@ -24,6 +24,10 @@ class SingleProfile extends Component {
             return(
                 <div className="user-container">
                 <h1>{this.state.user.user_name} 's Profile</h1> 
+                <h1>Located: {this.state.user.user_location} </h1>
+                <h1>Reading List: {this.state.user.books} </h1>
+                <h1> Member of : {this.state.user.books} </h1>
+
                 {/* <h1>{this.state.bookClub.bc_description}</h1>
                 <h1>{this.state.bookClub.bc_location}</h1> */}
     
