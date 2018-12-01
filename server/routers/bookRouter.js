@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router()
 
 const controller = require('../controllers/bookController')
+//const mailer = require( "./nodemailer")
 
 router.get('/', controller.index);
 router.get('/bookClubs', controller.indexBookClub);
@@ -18,6 +19,7 @@ router.put('/users/:id', controller.updateUser);
 router.delete('/:id', controller.destroy);
 router.delete('/bookClubs/:id', controller.destroyBookClub);
 router.delete('/users/:id', controller.destroyUser);
+//router.post('/bookClubs/:id', mailer.sendMail())
 
 
 module.exports = router;

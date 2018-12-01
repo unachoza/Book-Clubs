@@ -4,13 +4,14 @@
   background-color: rgb(188, 196, 195);
 }
 .header-container {
-  position: absolute;
+  position: fixed;
+  z-index: 50;
   width: 100vw;
-  height: 10vh;
+  height: 11vh;
   display: flex;
   justify-content: center;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  background-color: rgb(165, 192, 188);
+  
 
 }
 .header{
@@ -71,18 +72,19 @@ button {
   display: auto;
 }
 
-.title {
+.bookTitle {
   font-size: 30px;
 }
 .footer{
-  position: absolute;
+  position: fixed;
+  z-index: 50;
   bottom:0;
   width: 100vw;
-  height: 10vh;
+  height: 11vh;
   display: flex;
   justify-content: space-between;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  background-color: rgb(165, 192, 188);
+
 
 }
 .search-bar {
@@ -100,16 +102,14 @@ button {
   justify-content: center;
   height: 50vh;
 }
-.suggestions-container{
-  position: absolute;
+.container {
+  /* position: absolute; */
   top: 10vh;
   width: 100vw;
-  height: 90vh;
+  height: 80vh;
   display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  flex-flow: wrap;
+  /* align-items: center; */
 }
 .search-page-container{
   position: absolute;
@@ -117,12 +117,7 @@ button {
   width: 100vw;
   height: 90vh;
 }
-.single-book{
-  position: absolute;
-  top: 10vh;
-  width: 100vw;
-  height: 90vh;
-}
+
 .user-container{
   position: absolute;
   top: 10vh;
@@ -148,13 +143,53 @@ button {
 }
 .book-club-page{
   position: absolute;
-  top: 10vh;
-  width: 100vw;
-  height: 90vh;
+  top: 12vh;
+  width: 92vw;
+  height: 78vh;
+  margin: 2vmax;
 }
 .form-edit-book-club{
   position: absolute;
   top: 10vh;
   width: 100vw;
   height: 90vh;
+}
+
+.bookSuggestion {
+  margin: 2vmax;
+  width: 25vw;
+  height: 37vh;
+}
+
+.thumbnail-title{
+  display: flex;
+  width: 90vw;
+  height: 35vh;
+  top: 18vh;
+}
+.thumbnail {
+  margin: 3vmax;
+  width: 40vw;
+  height: 35vh;
+  top: 18vh;
+}
+.title {
+  width: 40vw;
+  height: 35vh;
+  top: 18vh;
+}
+.description {
+  width: 90vw;
+  height: 47vh;
+  top: 65vh;
+  margin: 1vmax;
+  margin-bottom: 2vh;
+}
+.single-book{
+  position: absolute;
+  margin: 2vmax;
+  margin-bottom: 20vh;
+  top: 16vh;
+  width: 90vw;
+  height: 87vh;
 }
