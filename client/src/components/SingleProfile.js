@@ -18,9 +18,11 @@ class SingleProfile extends Component {
 					apiDataLoaded:true,
 					user: res.data.data
                 })
-		console.log('this is props from user: ', this.state.user.id)
+        console.log('this is props from user: ', this.state.user.id)
+        
 			}).catch(err => console.log(err))
     } 
+
     render(){
     
             return(
@@ -39,7 +41,16 @@ class SingleProfile extends Component {
                         <h1> Member of : {this.state.user.books} </h1>
                     </div>
                     <div className= "button-container">
-                    <Camera/>
+                    <Camera
+                        style={style.preview}
+                        className ='preview'
+                        ref={(cam) => {
+                            this.camera = cam;
+                        }}
+                        >
+                        <h1>{this.camera}</h1>
+                        <img src="img" />
+                        </Camera>
                     <Link to={`/user/${this.props.match.params.id}/readingList`}><button> Reading List</button></Link>
                     </div>
 
@@ -53,3 +64,29 @@ class SingleProfile extends Component {
     }
 
 export default SingleProfile
+
+
+const style = {
+    preview: {
+      position: 'relative',
+    },
+    captureContainer: {
+      display: 'flex',
+      position: 'absolute',
+      justifyContent: 'center',
+      zIndex: 1,
+      bottom: 0,
+      width: '100%'
+    },
+    captureButton: {
+      backgroundColor: '#fff',
+      borderRadius: '50%',
+      height: 56,
+      width: 56,
+      color: '#000',
+      margin: 20
+    },
+    captureImage: {
+      width: '100%',
+    }
+  };
