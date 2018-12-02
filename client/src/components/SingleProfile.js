@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios';
 import {   Link } from 'react-router-dom'
+import Camera from './Camera'
 
 
 
@@ -38,6 +39,7 @@ class SingleProfile extends Component {
                         <h1> Member of : {this.state.user.books} </h1>
                     </div>
                     <div className= "button-container">
+                    <Camera/>
                     <Link to={`/user/${this.props.match.params.id}/readingList`}><button> Reading List</button></Link>
                     </div>
 
