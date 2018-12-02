@@ -11,6 +11,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import FormCreateAccount from './components/FormCreateAccount'
+import UserReadingList from './components/UserReadingList'
 
 class App extends Component {
 
@@ -21,11 +22,12 @@ class App extends Component {
       <div>
       <Header />
         <Switch>
-          <Route exact path="/" component={Search} />
-          <Route exact path="/createAccount" component={FormCreateAccount} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/" component={FormCreateAccount} />
           <Route exact path="/user/:id" render={(props) => (
             <SingleProfile { ...props }/>
           )}/>
+          <Route exact path="/user/:id/readingList" component={UserReadingList}/>
           <Route exact path="/SingleBook/:id" render={(props) => (
             <SingleBook { ...props }/>
           )}/>

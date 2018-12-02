@@ -12,7 +12,7 @@ export default class SingleBook extends Component {
   state ={
     apiDataLoaded: false,
     book: {}
-  }
+  } 
   
   
     componentDidMount() {
@@ -27,8 +27,21 @@ export default class SingleBook extends Component {
           console.log(this.state)
         }).catch(err => console.log(err))
     }
-    addtoReadingList(){
-
+    addtoReadingList(e){
+      console.log('hitting the button I want')
+      e.preventDefault()
+      axios.post('http://localhost:3001/books/',
+      {
+          title: this.state.book.title,
+          author: this.state.book.authors,
+          img: this.state.book.imageLinks.thumbnail,
+          genre: this.state.book.categories,
+          page_num: this.state.book.pageCount,
+          summary: this.state.book.description
+      })
+      .then((data) => {
+          console.log('success', data)
+      })
     }
 
 
@@ -51,8 +64,9 @@ export default class SingleBook extends Component {
           </div>
           <div className="description">
             <p><strong>Description: </strong>{this.state.book.description}</p>
-            <div className = "button-container">
-              <button>Add to Reading List</button>
+            <div className = "bookSingle-button-container">
+              <button onClick={(e) => this.addtoReadingList(e)}
+              >Add to Reading List</button>
               <Link to={"/createBookClub"}><button>New Book Club</button></Link>
             </div>
           </div>
