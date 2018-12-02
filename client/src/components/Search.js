@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-import Header from './Header'
 
 const API = "https://www.googleapis.com/books/v1/volumes?"
 const KEY = 'AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk'
@@ -15,7 +13,6 @@ class Search extends Component {
         this.state ={
             query : '',
             allBooksResults: [],
-            thumbnails : []
         }  
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClick = this.handleClick.bind(this)

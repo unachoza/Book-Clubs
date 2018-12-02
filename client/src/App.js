@@ -9,7 +9,6 @@ import SingleBook from './components/SingleBook'
 import SingleProfile from './components/SingleProfile'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import FormCreateAccount from './components/FormCreateAccount'
 import UserReadingList from './components/UserReadingList'
 

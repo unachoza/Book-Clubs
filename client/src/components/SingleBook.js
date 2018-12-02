@@ -11,7 +11,8 @@ const KEY = 'AIzaSyD7FNZozYbpVZfA1KrlDBQtfE_0mO0tLFk'
 export default class SingleBook extends Component {
   state ={
     apiDataLoaded: false,
-    book: {}
+    book: {},
+    newId: ''
   } 
   
   
@@ -41,6 +42,10 @@ export default class SingleBook extends Component {
       })
       .then((data) => {
           console.log('success', data)
+          this.setState({
+            newId: data.data.data.id
+          })
+          console.log(this.state)
       })
     }
 

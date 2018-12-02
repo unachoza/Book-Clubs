@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import {  Redirect, Link } from 'react-router-dom'
+import {   Link } from 'react-router-dom'
 
 
 
@@ -17,9 +17,9 @@ class SingleProfile extends Component {
 					apiDataLoaded:true,
 					user: res.data.data
                 })
-		console.log('this is props from book club single: ', this.state.user)
+		console.log('this is props from user: ', this.state.user.id)
 			}).catch(err => console.log(err))
-    }
+    } 
     render(){
     
             return(
