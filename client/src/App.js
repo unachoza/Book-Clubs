@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import FormCreateAccount from './components/FormCreateAccount'
 import UserReadingList from './components/UserReadingList'
 import Camera from './components/Camera'
+import BookClubAll from './components/BookClubAll';
 
 class App extends Component {
 
@@ -22,6 +23,7 @@ class App extends Component {
       <div>
       <Header />
         <Switch>
+          <Route exact path="/allClubs" component={BookClubAll}/>
            <Route exact path="/camera" component={Camera} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/" component={FormCreateAccount} />

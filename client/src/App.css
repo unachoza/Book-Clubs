@@ -243,3 +243,11 @@ button {
   display: flex;
   flex-flow: wrap;
 }
+.clubDatabaseList {
+  width: 40vw;
+  background-color: lightblue;
+  margin: 1vmax;
+  border-radius: 1vmax;
+  justify-items: center;
+
+}
