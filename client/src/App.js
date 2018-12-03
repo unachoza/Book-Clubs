@@ -11,6 +11,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import FormCreateAccount from './components/FormCreateAccount'
 import UserReadingList from './components/UserReadingList'
+import Camera from './components/Camera'
 
 class App extends Component {
 
@@ -21,6 +22,7 @@ class App extends Component {
       <div>
       <Header />
         <Switch>
+           <Route exact path="/camera" component={Camera} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/" component={FormCreateAccount} />
           <Route exact path="/user/:id" render={(props) => (

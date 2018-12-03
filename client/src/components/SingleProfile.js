@@ -29,7 +29,11 @@ class SingleProfile extends Component {
                 <div className="user-container">
                     <div className="userTop-container">
                         <div className="profilePic">
-                            <img className="profilePic"  src ='https://res.cloudinary.com/dh41vh9dx/image/upload/c_scale,w_112/v1543592436/Screen_Shot_2018-11-30_at_10.39.26_AM.png' alt="no image" />
+                            <Link to ={"/Camera"}><img className="profilePic"  src ='https://res.cloudinary.com/dh41vh9dx/image/upload/c_scale,w_112/v1543592436/Screen_Shot_2018-11-30_at_10.39.26_AM.png' alt="no image" /></Link>
+                            <img
+                                className ='captureImage'
+                                ref={(img) => {this.img = img;}}
+                            />
                         </div>
                         <div className="userInfo">
                             <h1>{this.state.user.user_name} 's Profile</h1> 
@@ -41,7 +45,7 @@ class SingleProfile extends Component {
                         <h1> Member of : {this.state.user.books} </h1>
                     </div>
                     <div className= "button-container">
-                    <Camera
+                    {/* <Camera
                         style={style.preview}
                         className ='preview'
                         ref={(cam) => {
@@ -50,7 +54,7 @@ class SingleProfile extends Component {
                         >
                         <h1>{this.camera}</h1>
                         <img src="img" />
-                        </Camera>
+                        </Camera> */}
                     <Link to={`/user/${this.props.match.params.id}/readingList`}><button> Reading List</button></Link>
                     </div>
 

@@ -221,3 +221,7 @@ button {
 .bookSingle-button-container{
   margin-bottom: 18vh;
 }
+
+.captureImage {
+  width: '50%'
+}
