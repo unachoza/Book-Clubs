@@ -55,8 +55,9 @@ body{
   }
 }
 h1 {
-  color: blue;
+  color: black;
   text-align: center;
+  font-size: 4vh;
 
 }
 div {
@@ -105,10 +106,12 @@ button {
 .container {
   /* position: absolute; */
   top: 10vh;
+  margin-top: 15vmax;
   width: 100vw;
   height: 80vh;
   display: flex;
   flex-flow: wrap;
+  justify-content:space-evenly 
   /* align-items: center; */
 }
 .search-page-container{
@@ -116,6 +119,7 @@ button {
   top: 10vh;
   width: 100vw;
   height: 90vh;
+  margin-top: 20vh;
 }
 
 .user-container{
@@ -157,8 +161,9 @@ button {
 
 .bookSuggestion {
   margin: 2vmax;
-  width: 20vw;
-  height: 37vh;
+  padding: 2vmax;
+  width: 27vw;
+  height: 30vh;
 }
 
 .thumbnail-title{
@@ -216,7 +221,7 @@ button {
 }
 .suggestionContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .bookSingle-button-container{
   margin-bottom: 18vh;
@@ -224,4 +229,17 @@ button {
 
 .captureImage {
   width: '50%'
+}
+
+.booksDatabaseList {
+  width: 40vw;
+  
+}
+
+.allbooks {
+  top: 10vh;
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-flow: wrap;
 }
