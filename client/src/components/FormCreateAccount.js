@@ -105,7 +105,7 @@ class CreateAccount extends Component {
             </input><br/>
             {this.state.fireRedirect ? <Redirect push to={`/user/${this.state.newId}`}/> : ''}
             {/* <Redirect to={`/SingleBookClub/${this.state.newId}`}> */}
-            <button onClick={this.handleClick}>Create Your Account</button> 
+            <button onClick={this.handleClick}>Create Your Personal Account</button> 
             </form>
           
             </div>
