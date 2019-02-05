@@ -81,7 +81,7 @@ class CreateAccount extends Component {
             <h1>Create Account</h1><br/>
             <input
                 name='Name'
-                type='text'
+                type='password'
                 placeholder='Name'
                 onChange={this.handleNameInput}>
             </input><br/>
