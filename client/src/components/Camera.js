@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Camera from 'react-camera';
+import { Redirect } from 'react-router-dom'
 
 
 export default class App extends Component {
   state = {
     picture: null,
-    username: ''
+    fireRedirect:false
    }
 
    componentDidUpdate(prevProps, prevState) {
@@ -13,6 +14,11 @@ export default class App extends Component {
       console.log(this.state.picture)
     }
    }
+
+   componentWillUpdate(nextProps, nextState){
+     localStorage.setItem('url', JSON.stringify(nextState.picture))
+   }
+
 
   async takePicture() {
     let theBlob;
@@ -36,7 +42,14 @@ export default class App extends Component {
     const user_id = localStorage.getItem('user_id')
     const image = document.querySelector('.captureImage')
     const blob = image.src
-    console.log(blob)
+    console.log(this.state)
+    this.setState((
+      this.state = {
+        picture: blob,
+        fireRedirect: true
+      }
+    ))
+    //localStorage.setItem(blob)
     //   axios.post('/pictures', {
     //     user_id: user_id,
     //     img_url: blob
@@ -65,6 +78,7 @@ export default class App extends Component {
             <div className ='uploadButton' onClick ={(e) => this.uploadHandler(e)}>
               <button className ='captureButton'> UPLOAD </button>
             </div>
+            {this.state.fireRedirect ? <Redirect push to={`/user/${14}`}/> : ''}
          </div>
          <img
           className ='captureImage'
@@ -128,7 +142,7 @@ const style = {
     justifyContent: 'center',
     zIndex: 1,
     bottom: 0,
-    width: '100%'
+    width: '50%'
   },
   captureButton: {
     backgroundColor: '#fff',
@@ -139,6 +153,6 @@ const style = {
     margin: 20
   },
   captureImage: {
-    width: '100%',
+    width: '50%',
   }
 };

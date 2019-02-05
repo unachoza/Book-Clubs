@@ -93,7 +93,7 @@ class CreateAccount extends Component {
             </input><br/>
             <input
                 name='Password'
-                type='text'
+                type='password'
                 placeholder='Password'
                 onChange={this.handlePasswordInput}>
             </input><br/>

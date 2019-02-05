@@ -9,7 +9,9 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "debugger": "DEBUG=: nodemon server.js"
+    "debugger": "DEBUG=: nodemon server.js",
+    "heroku-postbuild": "npm install && cd client && npm install --only-dev && npm install && npm run build"
+
   },
   "author": "Arianna Choza",
   "license": "ISC",
@@ -19,9 +21,11 @@
     "body-scroll-lock": "^2.6.1",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
     "morgan": "^1.9.1",
     "nodemailer": "^4.7.0",
     "pg-promise": "^8.5.2",
+    "prop-types": "^15.6.2",
     "react-camera": "^0.1.3"
   },
   "devDependencies": {

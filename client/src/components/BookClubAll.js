@@ -2,17 +2,17 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-class UserReadingList extends Component {
+class BookClubAll extends Component {
 
     state ={
         apiDataLoaded: false,
-        allBooksArray: [],
+        allClubsArray: [],
       } 
       
       
         componentDidMount() {
           console.log('this is props from books: ', this.props)
-          axios.get('http://localhost:3001/books')
+          axios.get('http://localhost:3001/books/bookclubs')
             .then(async res => {
                 // let allBooksFromDatabase = []
                 
@@ -20,22 +20,22 @@ class UserReadingList extends Component {
 
                     await this.setState({
                 apiDataLoaded:true,
-                allBooksArray: res.data.data
+                allClubsArray: res.data.data
            
                 })
-                // console.log("state from API call", allBooksArray)
+                // console.log("state from API call", allClubsArray)
               
             }).catch(err => console.log(err)) 
 
    {/* // <Link to={`/SingleBook/${id[id]}`}> */}
         }
-        renderBooks(){
+        renderClubs(){
         if(this.state.apiDataLoaded){
-            return(this.state.allBooksArray.map( id => {
+            return(this.state.allClubsArray.map( id => {
                 return (
-                     <div key={id} className= "booksDatabaseList">
-                    <img src={id.img} alt={"thumbnail"} />
-                     <h6>{id.title} </h6>
+                     <div key={id} className= "clubDatabaseList">
+                    
+                    <Link to={`/SingleBookClub/${id.id}`}> <h6>{id.bc_name} </h6> </Link>
                      </div>
                 )
             }))
@@ -45,7 +45,7 @@ class UserReadingList extends Component {
 
 
 
-        {/* let booksDatabase = this.state.allBooksArray.map( (x ,id) => { 
+        {/* let booksDatabase = this.state.allClubsArray.map( (x ,id) => { 
             console.log(x.data)
             let thumbnail = x.data[id].img
            
@@ -57,14 +57,14 @@ class UserReadingList extends Component {
         return(
             <div className="allbooks">
                 <div className="container">
-                    {this.renderBooks()}
+                    {this.renderClubs()}
                 </div>
             </div>
         )
     }
 }
 
-export default UserReadingList
+export default BookClubAll
 
 
 //https://m.media-amazon.com/images/M/MV5BYjNmMzZkYTctYmM4MS00MWEzLThkYjItZmM5NjMzMmZmMDJiXkEyXkFqcGdeQXVyOTEwNTkyNjE@._V1_UY98_CR1,0,67,98_AL_.jpg"

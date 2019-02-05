@@ -3,8 +3,13 @@ const logger = require('morgan');
 //const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors')
-
+const exphbs = require('express-handlebars')
+const nodemailer = require('nodemailer')
 const app = express();
+//set up engine
+
+app.engine('handlebars', exphbs())
+app.set('view engine', 'handlebars')
 
 app.use(logger('dev'));
 //app.use(express.static('public'));
@@ -19,7 +24,8 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-  res.send('hello world');
+  res.render('contact')
+  // res.send('hello world');
 });
 
 const booksRoutes = require('./server/routers/bookRouter');

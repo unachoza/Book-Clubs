@@ -12,7 +12,7 @@ class Header extends Component {
         return(
         <div className="header-container">
             <img className="icon" src="https://res.cloudinary.com/dh41vh9dx/image/upload/v1543446340/library.png" alt="library"/>
-            <h1 className= "header">PUBLIC BOOKSHELF</h1>
+            <h1 className= "header">Book Club</h1>
             <Link to={"/search"}><img className="icon" src="https://res.cloudinary.com/dh41vh9dx/image/upload/v1543445856/search_copy.png" alt="search"/></Link>
         </div>
         )

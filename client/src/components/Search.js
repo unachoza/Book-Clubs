@@ -133,7 +133,7 @@ class Search extends Component {
                             </input>
                         </form>
                         <div className="suggestionContainer">
-                        <p>{this.state.query}</p>
+                        {/* <p>{this.state.query}</p> */}
                         {/* <Suggestions options={options}/> */}
                         <div className="container">{options}</div>
                         {/* <SingleBook allBooksResults={this.state.allBooksResults.e}/> */}
